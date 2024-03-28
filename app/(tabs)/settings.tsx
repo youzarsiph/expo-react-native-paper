@@ -17,7 +17,9 @@ const Settings = () => (
 
     <Text variant="bodyLarge">Open up the code for this screen:</Text>
 
-    <Chip textStyle={{ fontFamily: "JetBrainsMono" }}>app/modal.tsx</Chip>
+    <Chip textStyle={{ fontFamily: "JetBrainsMono" }}>
+      app/(tabs)/settings.tsx
+    </Chip>
 
     <Text variant="bodyLarge" style={{ textAlign: "center" }}>
       Change any of the text, save the file, and your app will automatically

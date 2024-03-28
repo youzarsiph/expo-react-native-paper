@@ -2,42 +2,10 @@ import React from "react";
 import { useFonts } from "expo-font";
 import { useColorScheme } from "react-native";
 import { SplashScreen, Stack } from "expo-router";
+import { PaperProvider, Appbar } from "react-native-paper";
 import { getHeaderTitle } from "@react-navigation/elements";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import {
-  DarkTheme as NavigationDarkTheme,
-  DefaultTheme as NavigationDefaultTheme,
-} from "@react-navigation/native";
-import {
-  PaperProvider,
-  adaptNavigationTheme,
-  MD3LightTheme,
-  MD3DarkTheme,
-  Appbar,
-} from "react-native-paper";
-
-const { LightTheme, DarkTheme } = adaptNavigationTheme({
-  reactNavigationLight: NavigationDefaultTheme,
-  reactNavigationDark: NavigationDarkTheme,
-});
-
-const CombinedDefaultTheme = {
-  ...MD3LightTheme,
-  ...LightTheme,
-  colors: {
-    ...MD3LightTheme.colors,
-    ...LightTheme.colors,
-  },
-};
-
-const CombinedDarkTheme = {
-  ...MD3DarkTheme,
-  ...DarkTheme,
-  colors: {
-    ...MD3DarkTheme.colors,
-    ...DarkTheme.colors,
-  },
-};
+import { Themes } from "@/styles";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -80,11 +48,10 @@ const RootLayoutNav = () => {
   const colorScheme = useColorScheme();
 
   return (
-    <PaperProvider
-      theme={colorScheme === "light" ? CombinedDefaultTheme : CombinedDarkTheme}
-    >
+    <PaperProvider theme={colorScheme === "light" ? Themes.light : Themes.dark}>
       <Stack
         screenOptions={{
+          animation: "ios",
           header: (props) => {
             const title = getHeaderTitle(props.options, props.route.name);
 

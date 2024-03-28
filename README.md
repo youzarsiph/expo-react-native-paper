@@ -2,6 +2,26 @@
 
 This repository is a template for React Native Expo applications. It integrates Expo Router and React Native Paper with bottom navigation.
 
+## Platforms
+
+- Web
+- IOS
+- Android
+
+## Screenshots
+
+### Light Theme
+
+![Home Screen Light](screenshots/home-light.png)
+![Settings Screen Light](screenshots/settings-light.png)
+![Modal Screen Light](screenshots/modal-light.png)
+
+### Dark Theme
+
+![Home Screen Dark](screenshots/home-dark.png)
+![Settings Screen Dark](screenshots/settings-dark.png)
+![Modal Screen Dark](screenshots/modal-dark.png)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.

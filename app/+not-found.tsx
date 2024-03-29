@@ -2,7 +2,7 @@ import React from "react";
 import { Link, Stack } from "expo-router";
 import { Divider, Surface, Text } from "react-native-paper";
 
-const Modal = () => (
+const NotFound = () => (
   <Surface
     style={{
       flex: 1,
@@ -26,4 +26,4 @@ const Modal = () => (
   </Surface>
 );
 
-export default Modal;
+export default NotFound;

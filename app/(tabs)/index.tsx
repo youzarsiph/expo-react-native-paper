@@ -1,7 +1,7 @@
 import React from "react";
 import { Chip, Divider, Surface, Text } from "react-native-paper";
 
-const Settings = () => (
+const Home = () => (
   <Surface
     style={{
       flex: 1,
@@ -28,4 +28,4 @@ const Settings = () => (
   </Surface>
 );
 
-export default Settings;
+export default Home;

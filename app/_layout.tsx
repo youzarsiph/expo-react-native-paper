@@ -1,10 +1,12 @@
 import React from "react";
 import { useFonts } from "expo-font";
-import { useColorScheme } from "react-native";
+import * as SecureStore from "expo-secure-store";
 import { SplashScreen, Stack } from "expo-router";
-import { PaperProvider, Appbar } from "react-native-paper";
+import { Platform, useColorScheme } from "react-native";
 import { getHeaderTitle } from "@react-navigation/elements";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { PaperProvider, Appbar } from "react-native-paper";
+import { Setting } from "@/types";
 import { Themes } from "@/styles";
 
 export {
@@ -22,7 +24,7 @@ SplashScreen.preventAutoHideAsync();
 
 const RootLayout = () => {
   const [loaded, error] = useFonts({
-    JetBrainsMono: require("../assets/fonts/JetBrainsMono.ttf"),
+    JetBrainsMono: require("@/assets/fonts/JetBrainsMono.ttf"),
     ...MaterialCommunityIcons.font,
   });
 
@@ -46,9 +48,36 @@ const RootLayout = () => {
 
 const RootLayoutNav = () => {
   const colorScheme = useColorScheme();
+  const [settings, setSettings] = React.useState<Setting>({
+    theme: "auto",
+    color: "default",
+  });
+
+  // Load settings from the device
+  React.useEffect(() => {
+    if (Platform.OS !== "web") {
+      SecureStore.getItemAsync("settings").then((result) => {
+        if (result === null) {
+          SecureStore.setItemAsync("settings", JSON.stringify(settings)).then(
+            (res) => console.log(res)
+          );
+        }
+
+        setSettings(JSON.parse(result ?? JSON.stringify(settings)));
+      });
+    } else {
+      setSettings({ ...settings, theme: colorScheme ?? "light" });
+    }
+  }, []);
 
   return (
-    <PaperProvider theme={colorScheme === "light" ? Themes.light : Themes.dark}>
+    <PaperProvider
+      theme={
+        Themes[
+          settings.theme === "auto" ? colorScheme ?? "dark" : settings.theme
+        ][settings.color]
+      }
+    >
       <Stack
         screenOptions={{
           animation: "ios",
@@ -60,6 +89,7 @@ const RootLayoutNav = () => {
                 {props.back ? (
                   <Appbar.BackAction onPress={props.navigation.goBack} />
                 ) : null}
+
                 <Appbar.Content title={title} />
               </Appbar.Header>
             );

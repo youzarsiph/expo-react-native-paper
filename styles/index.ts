@@ -2,6 +2,7 @@
  * Styles
  */
 
-import Themes from "./themes";
+import Colors from "@/styles/colors";
+import Themes from "@/styles/themes";
 
-export { Themes };
+export { Colors, Themes };

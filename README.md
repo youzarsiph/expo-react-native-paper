@@ -22,6 +22,12 @@ This repository is a template for React Native Expo applications. It integrates 
 ![Settings Screen Dark](screenshots/settings-dark.png)
 ![Modal Screen Dark](screenshots/modal-dark.png)
 
+### Custom Themes
+
+![Home Screen Cyan Dark](screenshots/home-cyan.png)
+![Settings Screen Orange Light](screenshots/settings-orange.png)
+![Modal Screen Yellow Dark](screenshots/modal-yellow.png)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.

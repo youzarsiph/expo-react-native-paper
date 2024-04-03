@@ -1,9 +1,14 @@
 import React from "react";
-import { Link, Tabs } from "expo-router";
+import { Tabs, router } from "expo-router";
 import { CommonActions } from "@react-navigation/native";
 import { getHeaderTitle } from "@react-navigation/elements";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Appbar, BottomNavigation, Icon } from "react-native-paper";
+import {
+  Appbar,
+  BottomNavigation,
+  IconButton,
+  Tooltip,
+} from "react-native-paper";
 
 const TabLayout = () => (
   <Tabs
@@ -83,9 +88,12 @@ const TabLayout = () => (
       options={{
         title: "Settings",
         headerRight: () => (
-          <Link href={"/modal"}>
-            <Icon size={24} source={"information"} />
-          </Link>
+          <Tooltip title="Info">
+            <IconButton
+              icon={"information"}
+              onPress={() => router.push("/modal")}
+            />
+          </Tooltip>
         ),
         tabBarIcon: (props) => (
           <MaterialCommunityIcons

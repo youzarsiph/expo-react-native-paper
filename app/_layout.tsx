@@ -1,6 +1,10 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  useFonts,
+  JetBrainsMono_400Regular,
+} from "@expo-google-fonts/jetbrains-mono";
+import { NotoSans_400Regular } from "@expo-google-fonts/noto-sans";
 import { getHeaderTitle } from "@react-navigation/elements";
-import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import * as SecureStore from "expo-secure-store";
 import React from "react";
@@ -25,7 +29,8 @@ SplashScreen.preventAutoHideAsync();
 
 const RootLayout = () => {
   const [loaded, error] = useFonts({
-    JetBrainsMono: require("@/assets/fonts/JetBrainsMono.ttf"),
+    NotoSans_400Regular,
+    JetBrainsMono_400Regular,
     ...MaterialCommunityIcons.font,
   });
 

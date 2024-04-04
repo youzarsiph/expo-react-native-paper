@@ -187,7 +187,7 @@ const Settings = () => {
 
         <Text variant="bodyLarge">Open up the code for this screen:</Text>
 
-        <Chip textStyle={{ fontFamily: "JetBrainsMono" }}>
+        <Chip textStyle={{ fontFamily: "JetBrainsMono_400Regular" }}>
           app/(tabs)/settings.tsx
         </Chip>
 
@@ -201,19 +201,24 @@ const Settings = () => {
         mode="contained"
         style={{ margin: 16 }}
         onPress={() =>
-          SecureStore.setItemAsync("settings", JSON.stringify(settings))
-            .then(() =>
-              setMessage({
+          Platform.OS !== "web"
+            ? SecureStore.setItemAsync("settings", JSON.stringify(settings))
+                .then(() =>
+                  setMessage({
+                    visible: true,
+                    content: "Restart the app to apply changes",
+                  }),
+                )
+                .catch((res) =>
+                  setMessage({
+                    visible: true,
+                    content: res.message,
+                  }),
+                )
+            : setMessage({
                 visible: true,
-                content: "Restart the app to apply changes",
-              }),
-            )
-            .catch((res) =>
-              setMessage({
-                visible: true,
-                content: res.message,
-              }),
-            )
+                content: "Expo SecureStore is not available for web",
+              })
         }
       >
         Save

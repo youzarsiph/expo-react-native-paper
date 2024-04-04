@@ -17,7 +17,7 @@ const Home = () => (
 
     <Text variant="bodyLarge">Open up the code for this screen:</Text>
 
-    <Chip textStyle={{ fontFamily: "JetBrainsMono" }}>
+    <Chip textStyle={{ fontFamily: "JetBrainsMono_400Regular" }}>
       app/(tabs)/index.tsx
     </Chip>
 

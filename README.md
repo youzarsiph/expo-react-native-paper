@@ -55,8 +55,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 - React Native
 - Expo
-- React Native Paper
 - Expo Router
+- React Native Paper
 
 ## Contributing
 

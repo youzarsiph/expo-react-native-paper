@@ -32,13 +32,13 @@ const Settings = () => {
     if (Platform.OS !== "web") {
       SecureStore.getItemAsync("settings")
         .then((result) =>
-          setSettings(JSON.parse(result ?? JSON.stringify(settings)))
+          setSettings(JSON.parse(result ?? JSON.stringify(settings))),
         )
         .catch((res) =>
           setMessage({
             visible: true,
             content: res.message,
-          })
+          }),
         );
     }
 
@@ -67,8 +67,8 @@ const Settings = () => {
                       settings.theme === "auto"
                         ? "theme-light-dark"
                         : settings.theme === "light"
-                        ? "weather-sunny"
-                        : "weather-night"
+                          ? "weather-sunny"
+                          : "weather-night"
                     }
                   />
                 )}
@@ -204,13 +204,13 @@ const Settings = () => {
               setMessage({
                 visible: true,
                 content: "Restart the app to apply changes",
-              })
+              }),
             )
             .catch((res) =>
               setMessage({
                 visible: true,
                 content: res.message,
-              })
+              }),
             )
         }
       >

@@ -2,12 +2,13 @@
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
 # documentation.
-# ESLint is a tool for identifying and reporting on patterns
-# found in ECMAScript/JavaScript code.
-# More details at https://github.com/eslint/eslint
-# and https://eslint.org
+# Prettier is an opinionated code formatter.
+# It enforces a consistent style by parsing your code and re-printing it with its own rules
+# that take the maximum line length into account, wrapping code when necessary.
+# More details at https://github.com/prettier/prettier
+# and https://prttier.io
 
-name: ESLint
+name: Prettier
 
 on:
   push:
@@ -18,12 +19,10 @@ on:
 
 jobs:
   eslint:
-    name: Run eslint scanning
+    name: Run prettier checking
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      security-events: write
-      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -34,11 +33,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: |
-          npm ci
-          npm install eslint
+        run: npm ci
 
-      - name: Run ESLint
-        run: npx eslint .
-          --config .eslintrc.js
-          --ext .js,.jsx,.ts,.tsx
+      - name: Run Prettier check
+        run: npx prettier --check .

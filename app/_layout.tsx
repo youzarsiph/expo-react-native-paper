@@ -59,7 +59,7 @@ const RootLayoutNav = () => {
       SecureStore.getItemAsync("settings").then((result) => {
         if (result === null) {
           SecureStore.setItemAsync("settings", JSON.stringify(settings)).then(
-            (res) => console.log(res)
+            (res) => console.log(res),
           );
         }
 

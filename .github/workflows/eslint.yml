@@ -40,5 +40,6 @@ jobs:
 
       - name: Run ESLint
         run: npx eslint .
+          --config .eslintrc.ts
           --ext .js,.jsx,.ts,.tsx
         continue-on-error: true

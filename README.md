@@ -1,5 +1,7 @@
 # expo-react-native-paper
 
+[![ESLint](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/eslint.yml/badge.svg)](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/eslint.yml)
+
 This repository is a template for React Native Expo applications. It integrates Expo Router and React Native Paper with bottom navigation.
 
 ## Platforms

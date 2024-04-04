@@ -30,6 +30,7 @@ const TabLayout = () => (
     }}
     tabBar={({ navigation, state, descriptors, insets }) => (
       <BottomNavigation.Bar
+        shifting
         navigationState={state}
         safeAreaInsets={insets}
         onTabPress={({ route, preventDefault }) => {

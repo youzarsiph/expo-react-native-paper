@@ -43,13 +43,6 @@ const Themes = {
         ...Colors.light.default,
       },
     },
-    yellow: {
-      ...BaseLightTheme,
-      colors: {
-        ...BaseLightTheme.colors,
-        ...Colors.light.yellow,
-      },
-    },
     orange: {
       ...BaseLightTheme,
       colors: {
@@ -134,13 +127,6 @@ const Themes = {
       colors: {
         ...BaseDarkTheme.colors,
         ...Colors.dark.default,
-      },
-    },
-    yellow: {
-      ...BaseDarkTheme,
-      colors: {
-        ...BaseDarkTheme.colors,
-        ...Colors.dark.yellow,
       },
     },
     red: {

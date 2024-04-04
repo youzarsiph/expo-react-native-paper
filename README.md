@@ -16,21 +16,30 @@ This repository is a template for React Native Expo applications. It integrates 
 
 ### Light Theme
 
-![Home Screen Light](screenshots/home-light.png)
-![Settings Screen Light](screenshots/settings-light.png)
-![Modal Screen Light](screenshots/modal-light.png)
+![Home Screen Light](screenshots/light/home.png)
+![Settings Screen Light](screenshots/light/settings.png)
+![Modal Screen Light](screenshots/light/modal.png)
 
 ### Dark Theme
 
-![Home Screen Dark](screenshots/home-dark.png)
-![Settings Screen Dark](screenshots/settings-dark.png)
-![Modal Screen Dark](screenshots/modal-dark.png)
+![Home Screen Dark](screenshots/dark/home.png)
+![Settings Screen Dark](screenshots/dark/settings.png)
+![Modal Screen Dark](screenshots/dark/modal.png)
 
 ### Custom Themes
 
-![Home Screen Cyan Dark](screenshots/home-cyan.png)
-![Settings Screen Orange Light](screenshots/settings-orange.png)
-![Modal Screen Yellow Dark](screenshots/modal-yellow.png)
+![Default Theme](screenshots/themes/default.png)
+![Blue Theme](screenshots/themes/blue.png)
+![Brown Theme](screenshots/themes/brown.png)
+![Cyan Theme](screenshots/themes/cyan.png)
+![Green Theme](screenshots/themes/green.png)
+![Indigo Theme](screenshots/themes/indigo.png)
+![Lime Theme](screenshots/themes/lime.png)
+![Olive Theme](screenshots/themes/olive.png)
+![Orange Theme](screenshots/themes/orange.png)
+![Red Theme](screenshots/themes/red.png)
+![Teal Theme](screenshots/themes/teal.png)
+![Violet Theme](screenshots/themes/violet.png)
 
 ## Getting Started
 

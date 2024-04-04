@@ -1,8 +1,8 @@
-import React from "react";
-import { Tabs, router } from "expo-router";
-import { CommonActions } from "@react-navigation/native";
-import { getHeaderTitle } from "@react-navigation/elements";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { getHeaderTitle } from "@react-navigation/elements";
+import { CommonActions } from "@react-navigation/native";
+import { Tabs, router } from "expo-router";
+import React from "react";
 import {
   Appbar,
   BottomNavigation,
@@ -90,7 +90,7 @@ const TabLayout = () => (
         headerRight: () => (
           <Tooltip title="Info">
             <IconButton
-              icon={"information"}
+              icon="information"
               onPress={() => router.push("/modal")}
             />
           </Tooltip>

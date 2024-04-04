@@ -1,5 +1,5 @@
-import React from "react";
 import { Link, Stack } from "expo-router";
+import React from "react";
 import { Divider, Surface, Text } from "react-native-paper";
 
 const NotFound = () => (

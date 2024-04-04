@@ -1,5 +1,5 @@
-import React from "react";
 import * as SecureStore from "expo-secure-store";
+import React from "react";
 import { Platform, useColorScheme } from "react-native";
 import {
   Surface,
@@ -12,9 +12,10 @@ import {
   Chip,
   Snackbar,
 } from "react-native-paper";
+
+import { LoadingIndicator } from "@/components";
 import { Colors } from "@/styles";
 import { Color, Setting } from "@/types";
-import { LoadingIndicator } from "@/components";
 
 const Settings = () => {
   const colorScheme = useColorScheme();
@@ -43,6 +44,7 @@ const Settings = () => {
     }
 
     setLoading(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -55,7 +57,7 @@ const Settings = () => {
             <List.Accordion
               id="1"
               title="Appearance"
-              left={(props) => <List.Icon {...props} icon={"palette"} />}
+              left={(props) => <List.Icon {...props} icon="palette" />}
             >
               <List.Item
                 title="Mode"
@@ -79,14 +81,14 @@ const Settings = () => {
                     anchor={
                       <IconButton
                         {...props}
-                        icon={"pencil"}
+                        icon="pencil"
                         onPress={() => setDisplay({ ...display, theme: true })}
                       />
                     }
                   >
                     <Menu.Item
                       title="Auto"
-                      leadingIcon={"theme-light-dark"}
+                      leadingIcon="theme-light-dark"
                       trailingIcon={
                         settings.theme === "auto" ? "check" : undefined
                       }
@@ -97,7 +99,7 @@ const Settings = () => {
                     />
                     <Menu.Item
                       title="Light"
-                      leadingIcon={"weather-sunny"}
+                      leadingIcon="weather-sunny"
                       trailingIcon={
                         settings.theme === "light" ? "check" : undefined
                       }
@@ -108,7 +110,7 @@ const Settings = () => {
                     />
                     <Menu.Item
                       title="Dark"
-                      leadingIcon={"weather-night"}
+                      leadingIcon="weather-night"
                       trailingIcon={
                         settings.theme === "dark" ? "check" : undefined
                       }
@@ -126,7 +128,7 @@ const Settings = () => {
                 left={(props) => (
                   <List.Icon
                     {...props}
-                    icon={"palette-swatch-variant"}
+                    icon="palette-swatch-variant"
                     color={
                       Colors[
                         settings.theme === "auto"
@@ -143,7 +145,7 @@ const Settings = () => {
                     anchor={
                       <IconButton
                         {...props}
-                        icon={"pencil"}
+                        icon="pencil"
                         onPress={() => setDisplay({ ...display, color: true })}
                       />
                     }

@@ -8,7 +8,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
-    "lint": "eslint ."
+    "lint": "eslint . --fix",
+    "format": "prettier -w ."
   },
   "jest": {
     "preset": "jest-expo"

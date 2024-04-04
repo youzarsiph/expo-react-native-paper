@@ -11,6 +11,7 @@ import {
   MD3LightTheme,
   MD3DarkTheme,
 } from "react-native-paper";
+
 import Colors from "@/styles/colors";
 
 const { LightTheme, DarkTheme } = adaptNavigationTheme({

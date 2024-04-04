@@ -1,6 +1,6 @@
+import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Platform } from "react-native";
-import { StatusBar } from "expo-status-bar";
 import { Chip, Divider, Surface, Text } from "react-native-paper";
 
 const Modal = () => (

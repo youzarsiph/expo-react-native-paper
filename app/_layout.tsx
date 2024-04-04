@@ -1,13 +1,14 @@
-import React from "react";
-import { useFonts } from "expo-font";
-import * as SecureStore from "expo-secure-store";
-import { SplashScreen, Stack } from "expo-router";
-import { Platform, useColorScheme } from "react-native";
-import { getHeaderTitle } from "@react-navigation/elements";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { getHeaderTitle } from "@react-navigation/elements";
+import { useFonts } from "expo-font";
+import { SplashScreen, Stack } from "expo-router";
+import * as SecureStore from "expo-secure-store";
+import React from "react";
+import { Platform, useColorScheme } from "react-native";
 import { PaperProvider, Appbar } from "react-native-paper";
-import { Setting } from "@/types";
+
 import { Themes } from "@/styles";
+import { Setting } from "@/types";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -68,6 +69,7 @@ const RootLayoutNav = () => {
     } else {
       setSettings({ ...settings, theme: colorScheme ?? "light" });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

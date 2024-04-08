@@ -6,7 +6,10 @@ import { MD3DarkTheme, MD3LightTheme } from "react-native-paper";
 
 const Colors = {
   light: {
-    default: { primary: MD3LightTheme.colors.primary },
+    default: {
+      primary: MD3LightTheme.colors.primary,
+      onPrimary: MD3LightTheme.colors.onPrimary,
+    },
     orange: {
       primary: "rgb(176, 46, 0)",
       onPrimary: "rgb(255, 255, 255)",
@@ -427,7 +430,10 @@ const Colors = {
     },
   },
   dark: {
-    default: { primary: MD3DarkTheme.colors.primary },
+    default: {
+      primary: MD3DarkTheme.colors.primary,
+      onPrimary: MD3DarkTheme.colors.onPrimary,
+    },
     orange: {
       primary: "rgb(255, 183, 134)",
       onPrimary: "rgb(80, 36, 0)",

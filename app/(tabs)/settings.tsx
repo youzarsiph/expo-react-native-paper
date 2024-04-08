@@ -11,6 +11,7 @@ import {
   Divider,
   Chip,
   Snackbar,
+  Icon,
 } from "react-native-paper";
 
 import { LoadingIndicator } from "@/components";
@@ -46,6 +47,9 @@ const Settings = () => {
     setLoading(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const themeColors =
+    Colors[settings.theme === "auto" ? colorScheme ?? "light" : settings.theme];
 
   return (
     <Surface style={{ flex: 1 }}>
@@ -151,17 +155,50 @@ const Settings = () => {
                     }
                   >
                     {Object.keys(Colors.light).map((color) => (
-                      <Menu.Item
+                      <Surface
                         key={color}
-                        title={color}
-                        trailingIcon={
-                          color === settings.color ? "check" : undefined
-                        }
-                        onPress={() => {
-                          setSettings({ ...settings, color: color as Color });
-                          setDisplay({ ...display, color: false });
+                        elevation={0}
+                        style={{
+                          width: "100%",
+                          flexDirection: "row",
+                          alignItems: "center",
                         }}
-                      />
+                      >
+                        <Surface
+                          elevation={0}
+                          style={{
+                            padding: 4,
+                            marginLeft: 8,
+                            borderRadius: 16,
+                            backgroundColor:
+                              color !== settings.color
+                                ? undefined
+                                : themeColors[color].primary,
+                          }}
+                        >
+                          <Icon
+                            size={24}
+                            source="palette"
+                            color={
+                              color !== settings.color
+                                ? themeColors[color as Color].primary
+                                : themeColors[color].onPrimary
+                            }
+                          />
+                        </Surface>
+
+                        <Menu.Item
+                          key={color}
+                          title={color}
+                          onPress={() => {
+                            setSettings({
+                              ...settings,
+                              color: color as Color,
+                            });
+                            setDisplay({ ...display, color: false });
+                          }}
+                        />
+                      </Surface>
                     ))}
                   </Menu>
                 )}

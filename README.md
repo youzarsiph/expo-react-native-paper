@@ -4,7 +4,14 @@
 [![ESLint](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/eslint.yml/badge.svg)](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/eslint.yml)
 [![Prettier](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/prettier.yml/badge.svg)](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/prettier.yml)
 
-This repository is a template for React Native Expo applications. It integrates Expo Router and React Native Paper with bottom navigation.
+This repository is a template for React Native Expo applications. It integrates Expo Router and React Native Paper. It also demonstrates how to use Github Actions for linting and formatting.
+
+## Features
+
+- Expo
+- Expo Router
+- Material Design V3
+- Cross Platform
 
 ## Platforms
 
@@ -19,12 +26,18 @@ This repository is a template for React Native Expo applications. It integrates 
 ![Home Screen Light](screenshots/light/home.png)
 ![Settings Screen Light](screenshots/light/settings.png)
 ![Modal Screen Light](screenshots/light/modal.png)
+![Drawer Home Screen Light](screenshots/light/drawer-home.png)
+![Drawer Settings Screen Light](screenshots/light/drawer-settings.png)
+![Drawer opened Light](screenshots/light/drawer.png)
 
 ### Dark Theme
 
 ![Home Screen Dark](screenshots/dark/home.png)
 ![Settings Screen Dark](screenshots/dark/settings.png)
 ![Modal Screen Dark](screenshots/dark/modal.png)
+![Drawer Home Screen Dark](screenshots/dark/drawer-home.png)
+![Drawer Settings Screen Dark](screenshots/dark/drawer-settings.png)
+![Drawer opened Dark](screenshots/dark/drawer.png)
 
 ### Custom Themes
 
@@ -64,6 +77,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Built With
 
+- TypeScript
+- React
 - React Native
 - Expo
 - Expo Router

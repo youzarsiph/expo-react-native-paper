@@ -4,13 +4,13 @@ import {
   JetBrainsMono_400Regular,
 } from "@expo-google-fonts/jetbrains-mono";
 import { NotoSans_400Regular } from "@expo-google-fonts/noto-sans";
-import { getHeaderTitle } from "@react-navigation/elements";
 import { SplashScreen, Stack } from "expo-router";
 import * as SecureStore from "expo-secure-store";
 import React from "react";
 import { Platform, useColorScheme } from "react-native";
-import { PaperProvider, Appbar } from "react-native-paper";
+import { PaperProvider } from "react-native-paper";
 
+import { StackHeader } from "@/components";
 import { Themes } from "@/styles";
 import { Setting } from "@/types";
 
@@ -88,22 +88,13 @@ const RootLayoutNav = () => {
       <Stack
         screenOptions={{
           animation: "ios",
-          header: (props) => {
-            const title = getHeaderTitle(props.options, props.route.name);
-
-            return (
-              <Appbar.Header>
-                {props.back ? (
-                  <Appbar.BackAction onPress={props.navigation.goBack} />
-                ) : null}
-
-                <Appbar.Content title={title} />
-              </Appbar.Header>
-            );
-          },
+          header: (props) => (
+            <StackHeader navProps={props} children={undefined} />
+          ),
         }}
       >
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="drawer" options={{ headerShown: false }} />
         <Stack.Screen
           name="modal"
           options={{ title: "Modal", presentation: "modal" }}

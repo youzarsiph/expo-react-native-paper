@@ -1,7 +1,7 @@
 import React from "react";
 import { Chip, Divider, Surface, Text } from "react-native-paper";
 
-const TabsHome = () => (
+const DrawerHome = () => (
   <Surface
     style={{
       flex: 1,
@@ -11,14 +11,14 @@ const TabsHome = () => (
       justifyContent: "center",
     }}
   >
-    <Text variant="displaySmall">Home</Text>
+    <Text variant="displaySmall">Drawer Home</Text>
 
     <Divider />
 
     <Text variant="bodyLarge">Open up the code for this screen:</Text>
 
     <Chip textStyle={{ fontFamily: "JetBrainsMono_400Regular" }}>
-      app/(tabs)/index.tsx
+      app/drawer/index.tsx
     </Chip>
 
     <Text variant="bodyLarge" style={{ textAlign: "center" }}>
@@ -28,4 +28,4 @@ const TabsHome = () => (
   </Surface>
 );
 
-export default TabsHome;
+export default DrawerHome;

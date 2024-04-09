@@ -3,11 +3,11 @@ import { NativeStackHeaderProps } from "@react-navigation/native-stack";
 import React from "react";
 import { Appbar, AppbarProps } from "react-native-paper";
 
-interface HeaderProps extends AppbarProps {
+interface StackHeaderProps extends AppbarProps {
   navProps: NativeStackHeaderProps;
 }
 
-const Header = (props: HeaderProps) => (
+const StackHeader = (props: StackHeaderProps) => (
   <Appbar.Header {...props}>
     {props.navProps.back ? (
       <Appbar.BackAction onPress={props.navProps.navigation.goBack} />
@@ -19,4 +19,4 @@ const Header = (props: HeaderProps) => (
   </Appbar.Header>
 );
 
-export default Header;
+export default StackHeader;

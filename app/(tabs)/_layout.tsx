@@ -1,29 +1,16 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { getHeaderTitle } from "@react-navigation/elements";
 import { Tabs, router } from "expo-router";
 import React from "react";
-import { Appbar, IconButton, Tooltip } from "react-native-paper";
+import { Appbar, Tooltip } from "react-native-paper";
 
-import { TabBar } from "@/components";
+import { TabBar, TabsHeader } from "@/components";
 
 const TabLayout = () => (
   <Tabs
     tabBar={(props) => <TabBar {...props} />}
     screenOptions={{
       tabBarHideOnKeyboard: true,
-      header: (props) => {
-        const title = getHeaderTitle(props.options, props.route.name);
-
-        return (
-          <Appbar.Header style={{ gap: 16, paddingHorizontal: 16 }}>
-            <Appbar.Content title={title} />
-
-            {props.options.headerRight
-              ? props.options.headerRight({})
-              : undefined}
-          </Appbar.Header>
-        );
-      },
+      header: (props) => <TabsHeader navProps={props} children={undefined} />,
     }}
   >
     <Tabs.Screen
@@ -44,12 +31,20 @@ const TabLayout = () => (
       options={{
         title: "Settings",
         headerRight: () => (
-          <Tooltip title="Info">
-            <IconButton
-              icon="information"
-              onPress={() => router.push("/modal")}
-            />
-          </Tooltip>
+          <>
+            <Tooltip title="Stack Navigation">
+              <Appbar.Action
+                icon="card-multiple-outline"
+                onPress={() => router.push("/modal")}
+              />
+            </Tooltip>
+            <Tooltip title="Drawer Navigation">
+              <Appbar.Action
+                icon="gesture-swipe"
+                onPress={() => router.push("/drawer/")}
+              />
+            </Tooltip>
+          </>
         ),
         tabBarIcon: (props) => (
           <MaterialCommunityIcons

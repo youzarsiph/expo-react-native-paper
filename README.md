@@ -12,6 +12,8 @@ This repository is a template for React Native Expo applications. It integrates 
 - Expo Router
 - Material Design V3
 - Cross Platform
+- LTR and RTL support
+- Multi lingual (`ar`, `en` and `tr`)
 
 ## Platforms
 
@@ -20,6 +22,12 @@ This repository is a template for React Native Expo applications. It integrates 
 - Android
 
 ## Screenshots
+
+### Languages
+
+![Arabic](screenshots/lang/ar.png)
+![Turkish](screenshots/lang/en.png)
+![Turkish](screenshots/lang/tr.png)
 
 ### Light Theme
 

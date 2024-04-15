@@ -1,6 +1,8 @@
 import React from "react";
 import { Chip, Divider, Surface, Text } from "react-native-paper";
 
+import Locales from "@/locales";
+
 const DrawerHome = () => (
   <Surface
     style={{
@@ -11,19 +13,18 @@ const DrawerHome = () => (
       justifyContent: "center",
     }}
   >
-    <Text variant="displaySmall">Drawer Home</Text>
+    <Text variant="displaySmall">{Locales.t("titleHome")}</Text>
 
     <Divider />
 
-    <Text variant="bodyLarge">Open up the code for this screen:</Text>
+    <Text variant="bodyLarge">{Locales.t("openScreenCode")}</Text>
 
     <Chip textStyle={{ fontFamily: "JetBrainsMono_400Regular" }}>
       app/drawer/index.tsx
     </Chip>
 
     <Text variant="bodyLarge" style={{ textAlign: "center" }}>
-      Change any of the text, save the file, and your app will automatically
-      update.
+      {Locales.t("changeScreenCode")}
     </Text>
   </Surface>
 );

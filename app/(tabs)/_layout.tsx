@@ -4,6 +4,7 @@ import React from "react";
 import { Appbar, Tooltip } from "react-native-paper";
 
 import { TabBar, TabsHeader } from "@/components";
+import Locales from "@/locales";
 
 const TabLayout = () => (
   <Tabs
@@ -16,7 +17,7 @@ const TabLayout = () => (
     <Tabs.Screen
       name="index"
       options={{
-        title: "Home",
+        title: Locales.t("titleHome"),
         tabBarIcon: (props) => (
           <MaterialCommunityIcons
             {...props}
@@ -29,16 +30,16 @@ const TabLayout = () => (
     <Tabs.Screen
       name="settings"
       options={{
-        title: "Settings",
+        title: Locales.t("titleSettings"),
         headerRight: () => (
           <>
-            <Tooltip title="Stack Navigation">
+            <Tooltip title={Locales.t("stackNav")}>
               <Appbar.Action
                 icon="card-multiple-outline"
                 onPress={() => router.push("/modal")}
               />
             </Tooltip>
-            <Tooltip title="Drawer Navigation">
+            <Tooltip title={Locales.t("drawerNav")}>
               <Appbar.Action
                 icon="gesture-swipe"
                 onPress={() => router.push("/drawer/")}

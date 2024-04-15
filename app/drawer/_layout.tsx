@@ -1,8 +1,10 @@
+import { router } from "expo-router";
 import { Drawer } from "expo-router/drawer";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { useTheme } from "react-native-paper";
+import { Appbar, Tooltip, useTheme } from "react-native-paper";
 
 import { DrawerContent, DrawerHeader } from "@/components";
+import Locales from "@/locales";
 
 const DrawerLayout = () => {
   const theme = useTheme();
@@ -31,15 +33,23 @@ const DrawerLayout = () => {
         <Drawer.Screen
           name="index"
           options={{
-            drawerLabel: "Home",
-            title: "Home",
+            drawerLabel: Locales.t("titleHome"),
+            title: Locales.t("titleHome"),
           }}
         />
         <Drawer.Screen
           name="settings"
           options={{
-            drawerLabel: "Settings",
-            title: "Settings",
+            drawerLabel: Locales.t("titleSettings"),
+            title: Locales.t("titleSettings"),
+            headerRight: () => (
+              <Tooltip title={Locales.t("stackNav")}>
+                <Appbar.Action
+                  icon="card-multiple-outline"
+                  onPress={() => router.push("/modal")}
+                />
+              </Tooltip>
+            ),
           }}
         />
       </Drawer>

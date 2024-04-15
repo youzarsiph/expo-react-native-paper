@@ -3,6 +3,8 @@ import { router } from "expo-router";
 import React from "react";
 import { Drawer, DrawerSectionProps } from "react-native-paper";
 
+import Locales from "@/locales";
+
 interface DrawerContentProps extends DrawerSectionProps {
   navProps: DrawerContentComponentProps;
 }
@@ -10,18 +12,18 @@ interface DrawerContentProps extends DrawerSectionProps {
 const DrawerContent = (props: DrawerContentProps) => (
   <Drawer.Section {...props}>
     <Drawer.Item
-      label="Go back"
+      label={Locales.t("goHome")}
       icon="arrow-left"
       onPress={() => router.replace("/")}
     />
     <Drawer.Item
-      label="Home"
+      label={Locales.t("titleHome")}
       icon="home"
       active={props.navProps.state.index === 0}
       onPress={() => router.push("/drawer/")}
     />
     <Drawer.Item
-      label="Settings"
+      label={Locales.t("titleSettings")}
       icon="cog"
       active={props.navProps.state.index === 1}
       onPress={() => router.push("/drawer/settings")}

@@ -3,6 +3,8 @@ import React from "react";
 import { Platform } from "react-native";
 import { Chip, Divider, Surface, Text } from "react-native-paper";
 
+import Locales from "@/locales";
+
 const Modal = () => (
   <Surface
     style={{
@@ -13,19 +15,18 @@ const Modal = () => (
       justifyContent: "center",
     }}
   >
-    <Text variant="displaySmall">Modal</Text>
+    <Text variant="displaySmall">{Locales.t("titleModal")}</Text>
 
     <Divider />
 
-    <Text variant="bodyLarge">Open up the code for this screen:</Text>
+    <Text variant="bodyLarge">{Locales.t("openScreenCode")}</Text>
 
     <Chip textStyle={{ fontFamily: "JetBrainsMono_400Regular" }}>
       app/modal.tsx
     </Chip>
 
     <Text variant="bodyLarge" style={{ textAlign: "center" }}>
-      Change any of the text, save the file, and your app will automatically
-      update.
+      {Locales.t("changeScreenCode")}
     </Text>
 
     {/* Use a light status bar on iOS to account for the black space above the modal */}

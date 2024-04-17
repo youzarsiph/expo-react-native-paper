@@ -1,9 +1,9 @@
-import { Color, Language } from "@/types";
+import { Color, Language } from '@/types'
 
 type Setting = {
-  color: Color;
-  theme: "light" | "dark" | "auto";
-  language: Language | "auto";
-};
+  color: Color
+  theme: 'light' | 'dark' | 'auto'
+  language: Language | 'auto'
+}
 
-export default Setting;
+export default Setting

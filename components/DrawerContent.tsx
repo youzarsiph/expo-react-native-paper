@@ -1,34 +1,34 @@
-import { DrawerContentComponentProps } from "@react-navigation/drawer";
-import { router } from "expo-router";
-import React from "react";
-import { Drawer, DrawerSectionProps } from "react-native-paper";
+import { DrawerContentComponentProps } from '@react-navigation/drawer'
+import { router } from 'expo-router'
+import React from 'react'
+import { Drawer, DrawerSectionProps } from 'react-native-paper'
 
-import Locales from "@/locales";
+import Locales from '@/locales'
 
 interface DrawerContentProps extends DrawerSectionProps {
-  navProps: DrawerContentComponentProps;
+  navProps: DrawerContentComponentProps
 }
 
 const DrawerContent = (props: DrawerContentProps) => (
   <Drawer.Section {...props}>
     <Drawer.Item
-      label={Locales.t("goHome")}
+      label={Locales.t('goHome')}
       icon="arrow-left"
-      onPress={() => router.replace("/")}
+      onPress={() => router.replace('/')}
     />
     <Drawer.Item
-      label={Locales.t("titleHome")}
+      label={Locales.t('titleHome')}
       icon="home"
       active={props.navProps.state.index === 0}
-      onPress={() => router.push("/drawer/")}
+      onPress={() => router.push('/drawer/')}
     />
     <Drawer.Item
-      label={Locales.t("titleSettings")}
+      label={Locales.t('titleSettings')}
       icon="cog"
       active={props.navProps.state.index === 1}
-      onPress={() => router.push("/drawer/settings")}
+      onPress={() => router.push('/drawer/settings')}
     />
   </Drawer.Section>
-);
+)
 
-export default DrawerContent;
+export default DrawerContent

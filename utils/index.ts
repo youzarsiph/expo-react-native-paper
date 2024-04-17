@@ -2,6 +2,6 @@
  * Utilities
  */
 
-import Languages from "@/utils/languages";
+import Languages from '@/utils/languages'
 
-export { Languages };
+export { Languages }

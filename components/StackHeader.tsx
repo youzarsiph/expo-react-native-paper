@@ -1,10 +1,10 @@
-import { getHeaderTitle } from "@react-navigation/elements";
-import { NativeStackHeaderProps } from "@react-navigation/native-stack";
-import React from "react";
-import { Appbar, AppbarProps } from "react-native-paper";
+import { getHeaderTitle } from '@react-navigation/elements'
+import { NativeStackHeaderProps } from '@react-navigation/native-stack'
+import React from 'react'
+import { Appbar, AppbarProps } from 'react-native-paper'
 
 interface StackHeaderProps extends AppbarProps {
-  navProps: NativeStackHeaderProps;
+  navProps: NativeStackHeaderProps
 }
 
 const StackHeader = (props: StackHeaderProps) => (
@@ -17,6 +17,6 @@ const StackHeader = (props: StackHeaderProps) => (
       title={getHeaderTitle(props.navProps.options, props.navProps.route.name)}
     />
   </Appbar.Header>
-);
+)
 
-export default StackHeader;
+export default StackHeader

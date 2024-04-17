@@ -5,34 +5,34 @@
 import {
   DarkTheme as NavigationDarkTheme,
   DefaultTheme as NavigationDefaultTheme,
-} from "@react-navigation/native";
+} from '@react-navigation/native'
 import {
   adaptNavigationTheme,
   MD3LightTheme,
   MD3DarkTheme,
   configureFonts,
-} from "react-native-paper";
+} from 'react-native-paper'
 
-import Colors from "@/styles/colors";
+import Colors from '@/styles/colors'
 
 const { LightTheme, DarkTheme } = adaptNavigationTheme({
   reactNavigationLight: NavigationDefaultTheme,
   reactNavigationDark: NavigationDarkTheme,
-});
+})
 
-const fonts = configureFonts({ config: { fontFamily: "NotoSans_400Regular" } });
+const fonts = configureFonts({ config: { fontFamily: 'NotoSans_400Regular' } })
 
 const BaseLightTheme = {
   ...LightTheme,
   ...MD3LightTheme,
   fonts,
-};
+}
 
 const BaseDarkTheme = {
   ...DarkTheme,
   ...MD3DarkTheme,
   fonts,
-};
+}
 
 const Themes = {
   light: {
@@ -207,6 +207,6 @@ const Themes = {
       },
     },
   },
-};
+}
 
-export default Themes;
+export default Themes

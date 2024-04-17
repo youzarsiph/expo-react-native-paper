@@ -1,13 +1,13 @@
-import { router } from "expo-router";
-import { Drawer } from "expo-router/drawer";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { Appbar, Tooltip, useTheme } from "react-native-paper";
+import { router } from 'expo-router'
+import { Drawer } from 'expo-router/drawer'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import { Appbar, Tooltip, useTheme } from 'react-native-paper'
 
-import { DrawerContent, DrawerHeader } from "@/components";
-import Locales from "@/locales";
+import { DrawerContent, DrawerHeader } from '@/components'
+import Locales from '@/locales'
 
 const DrawerLayout = () => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -33,20 +33,20 @@ const DrawerLayout = () => {
         <Drawer.Screen
           name="index"
           options={{
-            drawerLabel: Locales.t("titleHome"),
-            title: Locales.t("titleHome"),
+            drawerLabel: Locales.t('titleHome'),
+            title: Locales.t('titleHome'),
           }}
         />
         <Drawer.Screen
           name="settings"
           options={{
-            drawerLabel: Locales.t("titleSettings"),
-            title: Locales.t("titleSettings"),
+            drawerLabel: Locales.t('titleSettings'),
+            title: Locales.t('titleSettings'),
             headerRight: () => (
-              <Tooltip title={Locales.t("stackNav")}>
+              <Tooltip title={Locales.t('stackNav')}>
                 <Appbar.Action
                   icon="card-multiple-outline"
-                  onPress={() => router.push("/modal")}
+                  onPress={() => router.push('/modal')}
                 />
               </Tooltip>
             ),
@@ -54,7 +54,7 @@ const DrawerLayout = () => {
         />
       </Drawer>
     </GestureHandlerRootView>
-  );
-};
+  )
+}
 
-export default DrawerLayout;
+export default DrawerLayout

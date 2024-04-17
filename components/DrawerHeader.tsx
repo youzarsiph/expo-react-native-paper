@@ -1,10 +1,10 @@
-import { DrawerHeaderProps as BaseProps } from "@react-navigation/drawer";
-import { getHeaderTitle } from "@react-navigation/elements";
-import React from "react";
-import { Appbar, AppbarProps } from "react-native-paper";
+import { DrawerHeaderProps as BaseProps } from '@react-navigation/drawer'
+import { getHeaderTitle } from '@react-navigation/elements'
+import React from 'react'
+import { Appbar, AppbarProps } from 'react-native-paper'
 
 interface DrawerHeaderProps extends AppbarProps {
-  navProps: BaseProps;
+  navProps: BaseProps
 }
 
 const DrawerHeader = (props: DrawerHeaderProps) => (
@@ -22,6 +22,6 @@ const DrawerHeader = (props: DrawerHeaderProps) => (
       ? props.navProps.options.headerRight({})
       : undefined}
   </Appbar.Header>
-);
+)
 
-export default DrawerHeader;
+export default DrawerHeader

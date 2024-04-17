@@ -1,5 +1,5 @@
-import { Languages } from "@/utils";
+import { Languages } from '@/utils'
 
-type Language = keyof typeof Languages;
+type Language = keyof typeof Languages
 
-export default Language;
+export default Language

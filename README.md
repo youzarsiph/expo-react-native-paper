@@ -73,15 +73,36 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installation
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/youzarsiph/expo-react-native-paper.git
-   ```
-2. Open `package.json` and update the `name` field to match your app's name
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
+Clone the repo:
+
+```bash
+git clone https://github.com/youzarsiph/expo-react-native-paper.git
+```
+
+Open `package.json` and update the `name` field to match your app's name:
+
+```jsonc
+{
+  // Change the following line
+  "name": "expo-react-native-paper",
+  "main": "expo-router/entry",
+  "version": "1.0.0",
+  ...
+}
+
+```
+
+Install NPM packages:
+
+```bash
+npm install
+```
+
+Run the app:
+
+```bash
+npm start
+```
 
 ## Built With
 

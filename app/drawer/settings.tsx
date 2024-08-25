@@ -56,7 +56,9 @@ const Settings = () => {
   }, [])
 
   const themeColors =
-    Colors[settings.theme === 'auto' ? colorScheme ?? 'light' : settings.theme]
+    Colors[
+      settings.theme === 'auto' ? (colorScheme ?? 'light') : settings.theme
+    ]
 
   return (
     <Surface style={{ flex: 1 }}>
@@ -192,7 +194,7 @@ const Settings = () => {
                     color={
                       Colors[
                         settings.theme === 'auto'
-                          ? colorScheme ?? 'light'
+                          ? (colorScheme ?? 'light')
                           : settings.theme
                       ][settings.color]['primary']
                     }

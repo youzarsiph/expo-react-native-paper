@@ -11,6 +11,7 @@ This repository is a template for React Native Expo applications. It integrates 
 - Expo
 - Expo Router
 - Material Design V3
+- Light & Dark modes with custom themes
 - Cross Platform
 - LTR and RTL support
 - Multi lingual (`ar`, `en` and `tr`)
@@ -23,44 +24,13 @@ This repository is a template for React Native Expo applications. It integrates 
 
 ## Screenshots
 
-### Languages
-
-![Arabic](screenshots/lang/ar.png)
-![Turkish](screenshots/lang/en.png)
-![Turkish](screenshots/lang/tr.png)
-
-### Light Theme
-
-![Home Screen Light](screenshots/light/home.png)
-![Settings Screen Light](screenshots/light/settings.png)
-![Modal Screen Light](screenshots/light/modal.png)
-![Drawer Home Screen Light](screenshots/light/drawer-home.png)
-![Drawer Settings Screen Light](screenshots/light/drawer-settings.png)
-![Drawer opened Light](screenshots/light/drawer.png)
-
-### Dark Theme
-
-![Home Screen Dark](screenshots/dark/home.png)
-![Settings Screen Dark](screenshots/dark/settings.png)
-![Modal Screen Dark](screenshots/dark/modal.png)
-![Drawer Home Screen Dark](screenshots/dark/drawer-home.png)
-![Drawer Settings Screen Dark](screenshots/dark/drawer-settings.png)
-![Drawer opened Dark](screenshots/dark/drawer.png)
-
-### Custom Themes
-
-![Default Theme](screenshots/themes/default.png)
-![Blue Theme](screenshots/themes/blue.png)
-![Brown Theme](screenshots/themes/brown.png)
-![Cyan Theme](screenshots/themes/cyan.png)
-![Green Theme](screenshots/themes/green.png)
-![Indigo Theme](screenshots/themes/indigo.png)
-![Lime Theme](screenshots/themes/lime.png)
-![Olive Theme](screenshots/themes/olive.png)
-![Orange Theme](screenshots/themes/orange.png)
-![Red Theme](screenshots/themes/red.png)
-![Teal Theme](screenshots/themes/teal.png)
-![Violet Theme](screenshots/themes/violet.png)
+![Home Screen (Tabs)](./screenshots/home-default-light.png)
+![Settings Screen (Tabs)](./screenshots/settings-orange-dark.png)
+![Modal Screen (Stack)](./screenshots/modal-red-light.png)
+![Settings Screen (Drawer)](./screenshots/settings-lime-dark.png)
+![Home Screen (Drawer)](./screenshots/home-violet-light.png)
+![Settings Screen (Drawer)](./screenshots/settings-teal-dark.png)
+![Settings Screen (Drawer)](./screenshots/settings-lime-light.png)
 
 ## Getting Started
 
@@ -92,7 +62,7 @@ Open `package.json` and update the `name` field to match your app's name:
 
 ```
 
-Install NPM packages:
+Install dependencies:
 
 ```bash
 npm install

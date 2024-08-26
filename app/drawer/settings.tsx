@@ -1,6 +1,7 @@
+import { Canvas, LinearGradient, Rect, vec } from '@shopify/react-native-skia'
 import * as SecureStore from 'expo-secure-store'
 import React from 'react'
-import { Platform, useColorScheme } from 'react-native'
+import { Platform, useColorScheme, useWindowDimensions } from 'react-native'
 import {
   Surface,
   List,
@@ -8,10 +9,10 @@ import {
   Button,
   IconButton,
   Text,
-  Divider,
   Chip,
   Snackbar,
   Icon,
+  useTheme,
 } from 'react-native-paper'
 
 import { LoadingIndicator } from '@/components'
@@ -21,6 +22,8 @@ import { Color, Language, Setting } from '@/types'
 import { Languages } from '@/utils'
 
 const Settings = () => {
+  const theme = useTheme()
+  const { width } = useWindowDimensions()
   const colorScheme = useColorScheme()
   const [loading, setLoading] = React.useState<boolean>(false)
   const [message, setMessage] = React.useState({ visible: false, content: '' })
@@ -276,9 +279,27 @@ const Settings = () => {
           justifyContent: 'center',
         }}
       >
-        <Text variant="displaySmall">{Locales.t('titleSettings')}</Text>
+        {Platform.OS !== 'web' ? (
+          <Canvas
+            style={{
+              left: 0,
+              right: 0,
+              position: 'absolute',
+              height: 300,
+              width,
+            }}
+          >
+            <Rect x={0} y={0} width={width} height={300}>
+              <LinearGradient
+                start={vec(0, 0)}
+                end={vec(width, width)}
+                colors={[theme.colors.primary, theme.colors.inversePrimary]}
+              />
+            </Rect>
+          </Canvas>
+        ) : undefined}
 
-        <Divider />
+        <Text variant="displaySmall">{Locales.t('titleSettings')}</Text>
 
         <Text variant="bodyLarge">{Locales.t('openScreenCode')}</Text>
 

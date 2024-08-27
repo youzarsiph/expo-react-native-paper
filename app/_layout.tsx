@@ -11,10 +11,9 @@ import React from 'react'
 import { Platform, useColorScheme } from 'react-native'
 import { PaperProvider } from 'react-native-paper'
 
-import { StackHeader } from '@/components'
-import Locales from '@/locales'
-import { Themes } from '@/styles'
-import { Setting } from '@/types'
+import Locales from '@/lib/locales'
+import { Setting } from '@/lib/types'
+import { StackHeader, Themes } from '@/lib/ui'
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -101,14 +100,16 @@ const RootLayoutNav = () => {
     >
       <Stack
         screenOptions={{
-          animation: 'ios',
+          animation: 'slide_from_bottom',
           header: (props) => (
             <StackHeader navProps={props} children={undefined} />
           ),
         }}
       >
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="drawer" options={{ headerShown: false }} />
+        <Stack.Screen name="search" options={{ title: Locales.t('search') }} />
         <Stack.Screen
           name="modal"
           options={{ title: Locales.t('titleModal'), presentation: 'modal' }}

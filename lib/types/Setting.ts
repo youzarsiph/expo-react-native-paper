@@ -1,4 +1,4 @@
-import { Color, Language } from '@/types'
+import { Color, Language } from '@/lib/types'
 
 type Setting = {
   color: Color

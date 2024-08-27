@@ -3,6 +3,11 @@
  */
 
 const English = {
+  login: 'Log in',
+  signup: 'Sign up',
+  profile: 'Profile',
+  options: 'Options',
+  search: 'Search',
   stackNav: 'Stack Navigation',
   drawerNav: 'Drawer Navigation',
   appearance: 'Appearance',
@@ -27,6 +32,7 @@ const English = {
   titleSettings: 'Settings',
   restartApp: 'Restart the app to apply changes',
   notAvailable: 'Expo SecureStore is not available for web',
+  adaptive: 'adaptive',
   default: 'default',
   orange: 'orange',
   red: 'red',

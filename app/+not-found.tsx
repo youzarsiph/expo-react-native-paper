@@ -2,18 +2,11 @@ import { Link, Stack } from 'expo-router'
 import React from 'react'
 import { Surface, Text } from 'react-native-paper'
 
-import Locales from '@/locales'
+import Locales from '@/lib/locales'
+import { styles } from '@/lib/ui'
 
 const NotFound = () => (
-  <Surface
-    style={{
-      flex: 1,
-      gap: 16,
-      padding: 32,
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}
-  >
+  <Surface style={styles.screen}>
     <Stack.Screen options={{ title: Locales.t('titleNotFound') }} />
 
     <Text variant="displayLarge">{Locales.t('titleNotFound')}</Text>

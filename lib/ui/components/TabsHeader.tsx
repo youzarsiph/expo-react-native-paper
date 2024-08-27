@@ -9,6 +9,10 @@ interface TabsHeaderProps extends AppbarProps {
 
 const TabsHeader = (props: TabsHeaderProps) => (
   <Appbar.Header {...props}>
+    {props.navProps.options.headerLeft
+      ? props.navProps.options.headerLeft({})
+      : undefined}
+
     <Appbar.Content
       title={getHeaderTitle(props.navProps.options, props.navProps.route.name)}
     />

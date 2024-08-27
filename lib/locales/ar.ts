@@ -3,6 +3,11 @@
  */
 
 const Arabic = {
+  login: 'تسجيل الدخول',
+  signup: 'إنشاء حساب',
+  profile: 'الملف الشخصي',
+  options: 'الخيارات',
+  search: 'البحث',
   stackNav: 'التنقل المكدس',
   drawerNav: 'التنقل الدرج',
   appearance: 'المظهر',
@@ -27,6 +32,7 @@ const Arabic = {
   titleSettings: 'الإعدادات',
   restartApp: 'أعد تشغيل التطبيق لتطبيق التغييرات',
   notAvailable: 'Expo SecureStore غير متوفر للويب',
+  adaptive: 'تلقائي',
   default: 'افتراضي',
   orange: 'برتقالي',
   red: 'أحمر',

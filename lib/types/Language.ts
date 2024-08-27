@@ -1,4 +1,4 @@
-import { Languages } from '@/utils'
+import { Languages } from '@/lib/utils'
 
 type Language = keyof typeof Languages
 

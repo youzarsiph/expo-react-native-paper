@@ -1,29 +1,22 @@
-import { Canvas, LinearGradient, Rect, vec } from '@shopify/react-native-skia'
 import * as SecureStore from 'expo-secure-store'
 import React from 'react'
-import { Platform, useColorScheme, useWindowDimensions } from 'react-native'
+import { Platform, useColorScheme } from 'react-native'
 import {
   Surface,
   List,
   Menu,
   Button,
   IconButton,
-  Text,
-  Chip,
   Snackbar,
   Icon,
-  useTheme,
 } from 'react-native-paper'
 
-import { LoadingIndicator } from '@/components'
-import Locales from '@/locales'
-import { Colors } from '@/styles'
-import { Color, Language, Setting } from '@/types'
-import { Languages } from '@/utils'
+import Locales from '@/lib/locales'
+import { Color, Language, Setting } from '@/lib/types'
+import { Colors, LoadingIndicator, ScreenInfo, styles } from '@/lib/ui'
+import { Languages } from '@/lib/utils'
 
 const Settings = () => {
-  const theme = useTheme()
-  const { width } = useWindowDimensions()
   const colorScheme = useColorScheme()
   const [loading, setLoading] = React.useState<boolean>(false)
   const [message, setMessage] = React.useState({ visible: false, content: '' })
@@ -199,7 +192,7 @@ const Settings = () => {
                         settings.theme === 'auto'
                           ? (colorScheme ?? 'light')
                           : settings.theme
-                      ][settings.color]['primary']
+                      ][settings.color]?.primary
                     }
                   />
                 )}
@@ -234,7 +227,7 @@ const Settings = () => {
                             backgroundColor:
                               color !== settings.color
                                 ? undefined
-                                : themeColors[color].primary,
+                                : themeColors[color]?.primary,
                           }}
                         >
                           <Icon
@@ -242,7 +235,7 @@ const Settings = () => {
                             source="palette"
                             color={
                               color !== settings.color
-                                ? themeColors[color as Color].primary
+                                ? themeColors[color as Color]?.primary
                                 : themeColors[color].onPrimary
                             }
                           />
@@ -269,47 +262,11 @@ const Settings = () => {
         </Surface>
       )}
 
-      <Surface
-        elevation={0}
-        style={{
-          flex: 1,
-          gap: 16,
-          padding: 32,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        {Platform.OS !== 'web' ? (
-          <Canvas
-            style={{
-              left: 0,
-              right: 0,
-              position: 'absolute',
-              height: 300,
-              width,
-            }}
-          >
-            <Rect x={0} y={0} width={width} height={300}>
-              <LinearGradient
-                start={vec(0, 0)}
-                end={vec(width, width)}
-                colors={[theme.colors.primary, theme.colors.inversePrimary]}
-              />
-            </Rect>
-          </Canvas>
-        ) : undefined}
-
-        <Text variant="displaySmall">{Locales.t('titleSettings')}</Text>
-
-        <Text variant="bodyLarge">{Locales.t('openScreenCode')}</Text>
-
-        <Chip textStyle={{ fontFamily: 'JetBrainsMono_400Regular' }}>
-          app/(tabs)/settings.tsx
-        </Chip>
-
-        <Text variant="bodyLarge" style={{ textAlign: 'center' }}>
-          {Locales.t('changeScreenCode')}
-        </Text>
+      <Surface elevation={0} style={styles.screen}>
+        <ScreenInfo
+          title={Locales.t('titleSettings')}
+          path="app/(tabs)/settings.tsx"
+        />
       </Surface>
 
       <Button

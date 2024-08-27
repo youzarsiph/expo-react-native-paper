@@ -3,7 +3,10 @@
  */
 
 const Turkish = {
-  stackNav: 'Yığın Navigasyon',
+  login: 'Giriş',
+  signup: 'Hesap aç',
+  profile: 'Profil',
+  search: 'Ara',
   drawerNav: 'Çekmece Navigasyon',
   appearance: 'Görünüm',
   language: 'Dil',
@@ -27,6 +30,7 @@ const Turkish = {
   titleSettings: 'Ayarlar',
   restartApp: 'Değişiklikleri uygulamak için uygulamayı yeniden başlatın',
   notAvailable: 'Expo SecureStore web için kullanılabilir değil',
+  adaptive: 'adaptive',
   default: 'varsayılan',
   orange: 'turuncu',
   red: 'kırmızı',

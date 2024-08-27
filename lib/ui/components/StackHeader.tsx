@@ -9,6 +9,12 @@ interface StackHeaderProps extends AppbarProps {
 
 const StackHeader = (props: StackHeaderProps) => (
   <Appbar.Header {...props}>
+    {props.navProps.options.headerLeft
+      ? props.navProps.options.headerLeft({
+          canGoBack: props.navProps.navigation.canGoBack(),
+        })
+      : undefined}
+
     {props.navProps.back ? (
       <Appbar.BackAction onPress={props.navProps.navigation.goBack} />
     ) : null}
@@ -16,6 +22,12 @@ const StackHeader = (props: StackHeaderProps) => (
     <Appbar.Content
       title={getHeaderTitle(props.navProps.options, props.navProps.route.name)}
     />
+
+    {props.navProps.options.headerRight
+      ? props.navProps.options.headerRight({
+          canGoBack: props.navProps.navigation.canGoBack(),
+        })
+      : undefined}
   </Appbar.Header>
 )
 

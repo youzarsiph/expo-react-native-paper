@@ -79,6 +79,29 @@ const DrawerLayout = () => {
           }}
         />
         <Drawer.Screen
+          name="profile"
+          options={{
+            drawerLabel: Locales.t('profile'),
+            title: Locales.t('profile'),
+            headerRight: () => (
+              <>
+                <Tooltip title={Locales.t('search')}>
+                  <Appbar.Action
+                    icon="magnify"
+                    onPress={() => router.push('/search')}
+                  />
+                </Tooltip>
+                <Tooltip title={Locales.t('titleSettings')}>
+                  <Appbar.Action
+                    icon="cog"
+                    onPress={() => router.push('/(tabs)/settings')}
+                  />
+                </Tooltip>
+              </>
+            ),
+          }}
+        />
+        <Drawer.Screen
           name="settings"
           options={{
             drawerLabel: Locales.t('titleSettings'),

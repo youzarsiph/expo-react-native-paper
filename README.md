@@ -15,6 +15,7 @@ This repository is a template for React Native Expo applications. It integrates 
 - Cross Platform
 - LTR and RTL support
 - Multi lingual (`ar`, `en` and `tr`)
+- CI/CD
 
 ## Platforms
 
@@ -25,12 +26,15 @@ This repository is a template for React Native Expo applications. It integrates 
 ## Screenshots
 
 ![Home Screen (Tabs)](./screenshots/home-default-light.png)
-![Settings Screen (Tabs)](./screenshots/settings-orange-dark.png)
-![Modal Screen (Stack)](./screenshots/modal-red-light.png)
-![Settings Screen (Drawer)](./screenshots/settings-lime-dark.png)
-![Home Screen (Drawer)](./screenshots/home-violet-light.png)
-![Settings Screen (Drawer)](./screenshots/settings-teal-dark.png)
-![Settings Screen (Drawer)](./screenshots/settings-lime-light.png)
+![Profile Screen (Tabs)](./screenshots/profile-teal-dark.png)
+![Settings Screen (Tabs)](./screenshots/settings-lime-light.png)
+![Modal Screen (Stack)](./screenshots/modal-light-red.png)
+![Search Screen (Stack)](./screenshots/search-orange-dark.png)
+![Login Screen (Stack)](./screenshots/login-violet-light.png)
+![Signup Screen (Stack)](./screenshots/signup-green-dark.png)
+![Home Screen (Drawer)](./screenshots/home-blue-dark.png)
+![Profile Screen (Drawer)](./screenshots/profile-olive-light.png)
+![Settings Screen (Drawer)](./screenshots/settings-violet-light.png)
 
 ## Getting Started
 

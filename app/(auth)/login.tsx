@@ -1,3 +1,5 @@
+import { Image } from 'expo-image'
+import { router } from 'expo-router'
 import { Formik } from 'formik'
 import React from 'react'
 import {
@@ -13,9 +15,23 @@ import { styles } from '@/lib/ui'
 
 const Login = () => (
   <Surface style={{ ...styles.screen, alignItems: undefined }}>
-    <Text variant="headlineLarge">Log in</Text>
-    <Text variant="bodyLarge">
-      Welcome back, we are glad that you are here.
+    <Image
+      alt="Logo"
+      source={require('@/assets/images/icon.png')}
+      style={{
+        height: 150,
+        width: 150,
+        borderRadius: 16,
+        marginBottom: 32,
+        marginHorizontal: 'auto',
+      }}
+    />
+
+    <Text variant="headlineLarge" style={{ textAlign: 'center' }}>
+      Welcome to ERNP
+    </Text>
+    <Text variant="bodyLarge" style={{ textAlign: 'center' }}>
+      We're excited to have you back. Please log in to continue.
     </Text>
 
     <Formik
@@ -78,6 +94,13 @@ const Login = () => (
         </>
       )}
     </Formik>
+
+    <Button
+      mode="contained-tonal"
+      onPress={() => router.push('/(auth)/signup')}
+    >
+      New here?
+    </Button>
   </Surface>
 )
 

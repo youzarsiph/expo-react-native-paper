@@ -1,5 +1,8 @@
 # expo-react-native-paper
 
+[![EAS Build](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/eas-build.yml/badge.svg)](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/eas-build.yml)
+[![EAS Review](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/eas-reviews.yml/badge.svg)](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/eas-reviews.yml)
+[![EAS Update](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/eas-update.yml/badge.svg)](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/eas-update.yml)
 [![CodeQL](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/codeql.yml/badge.svg)](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/codeql.yml)
 [![ESLint](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/eslint.yml/badge.svg)](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/eslint.yml)
 [![Prettier](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/prettier.yml/badge.svg)](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/prettier.yml)
@@ -15,7 +18,7 @@ This repository is a template for React Native Expo applications. It integrates 
 - Cross Platform
 - LTR and RTL support
 - Multi lingual (`ar`, `en` and `tr`)
-- CI/CD
+- CI/CD. For more info checkout this [page](https://github.com/expo/expo-github-action/tree/main)
 
 ## Platforms
 

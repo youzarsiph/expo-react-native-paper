@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "expo-react-native-paper",
-    "slug": "expo-react-native-paper",
+    "name": "Framer",
+    "slug": "Framer",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -12,9 +12,14 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "ExpoLocalization_supportsRTL": true
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -37,7 +42,14 @@
       "typedRoutes": true
     },
     "extra": {
-      "supportsRTL": true
-    }
+      "supportsRTL": true,
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "3a948eee-0136-41d1-9d39-49f6d918ad94"
+      }
+    },
+    "owner": "xak2"
   }
 }

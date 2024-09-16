@@ -46,7 +46,8 @@
     "react-native-screens": "3.31.1",
     "react-native-web": "~0.19.6",
     "yup": "^1.4.0",
-    "expo-image": "~1.12.15"
+    "expo-image": "~1.12.15",
+    "expo-camera": "~15.0.16"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

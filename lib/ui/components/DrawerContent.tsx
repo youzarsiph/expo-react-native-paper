@@ -34,6 +34,12 @@ const DrawerContent = (props: DrawerContentProps) => (
       active={props.navProps.state.index === 2}
       onPress={() => router.push('/drawer/settings')}
     />
+    <Drawer.Item
+      label={Locales.t('scanner')}
+      icon="cog"
+      active={props.navProps.state.index === 3}
+      onPress={() => router.push('/drawer/eye')}
+    />
   </Drawer.Section>
 )
 

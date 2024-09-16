@@ -116,6 +116,21 @@ const DrawerLayout = () => {
             ),
           }}
         />
+        <Drawer.Screen
+          name="eye"
+          options={{
+            drawerLabel: Locales.t('eye'),
+            title: Locales.t('eye'),
+            headerRight: () => (
+              <Tooltip title={Locales.t('stackNav')}>
+                <Appbar.Action
+                  icon="card-multiple-outline"
+                  onPress={() => router.push('/modal')}
+                />
+              </Tooltip>
+            ),
+          }}
+        />
       </Drawer>
     </GestureHandlerRootView>
   )

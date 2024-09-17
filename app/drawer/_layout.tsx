@@ -117,10 +117,10 @@ const DrawerLayout = () => {
           }}
         />
         <Drawer.Screen
-          name="eye"
+          name="scanner"
           options={{
-            drawerLabel: Locales.t('eye'),
-            title: Locales.t('eye'),
+            drawerLabel: Locales.t('scanner'),
+            title: Locales.t('scanner'),
             headerRight: () => (
               <Tooltip title={Locales.t('stackNav')}>
                 <Appbar.Action

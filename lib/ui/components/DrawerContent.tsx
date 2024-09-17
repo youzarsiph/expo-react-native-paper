@@ -23,6 +23,12 @@ const DrawerContent = (props: DrawerContentProps) => (
       onPress={() => router.push('/drawer')}
     />
     <Drawer.Item
+      label={Locales.t('scanner')}
+      icon="data-matrix-scan"
+      active={props.navProps.state.index === 3}
+      onPress={() => router.push('/drawer/scanner')}
+    />
+    <Drawer.Item
       label={Locales.t('profile')}
       icon="account"
       active={props.navProps.state.index === 1}
@@ -33,12 +39,6 @@ const DrawerContent = (props: DrawerContentProps) => (
       icon="cog"
       active={props.navProps.state.index === 2}
       onPress={() => router.push('/drawer/settings')}
-    />
-    <Drawer.Item
-      label={Locales.t('scanner')}
-      icon="cog"
-      active={props.navProps.state.index === 3}
-      onPress={() => router.push('/drawer/eye')}
     />
   </Drawer.Section>
 )

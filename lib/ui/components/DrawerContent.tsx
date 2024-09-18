@@ -1,46 +1,55 @@
 import { DrawerContentComponentProps } from '@react-navigation/drawer'
 import { router } from 'expo-router'
 import React from 'react'
-import { Drawer, DrawerSectionProps } from 'react-native-paper'
-
-import Locales from '@/lib/locales'
+import { Drawer, DrawerSectionProps, Badge } from 'react-native-paper'
 
 interface DrawerContentProps extends DrawerSectionProps {
   navProps: DrawerContentComponentProps
 }
 
 const DrawerContent = (props: DrawerContentProps) => (
-  <Drawer.Section {...props}>
-    <Drawer.Item
-      label={Locales.t('goHome')}
-      icon="arrow-left"
-      onPress={() => router.replace('/')}
-    />
-    <Drawer.Item
-      label={Locales.t('titleHome')}
-      icon="home"
-      active={props.navProps.state.index === 0}
-      onPress={() => router.push('/drawer')}
-    />
-    <Drawer.Item
-      label={Locales.t('scanner')}
-      icon="data-matrix-scan"
-      active={props.navProps.state.index === 3}
-      onPress={() => router.push('/drawer/scanner')}
-    />
-    <Drawer.Item
-      label={Locales.t('profile')}
-      icon="account"
-      active={props.navProps.state.index === 1}
-      onPress={() => router.push('/drawer/profile')}
-    />
-    <Drawer.Item
-      label={Locales.t('titleSettings')}
-      icon="cog"
-      active={props.navProps.state.index === 2}
-      onPress={() => router.push('/drawer/settings')}
-    />
-  </Drawer.Section>
+  <>
+    <Drawer.Section {...props}>
+      <Drawer.Item
+        label="Current project"
+        icon="calendar"
+        active={props.navProps.state.index === 0}
+        onPress={() => console.log("click")}
+      />
+    </Drawer.Section>
+    <Drawer.Section title="Last 5 projects" {...props}>
+      <Drawer.Item
+        label="Michael Levy"
+        icon="progress-clock"
+        active={props.navProps.state.index === 1}
+        onPress={() => console.log("click")}
+      />
+      <Drawer.Item
+        label="James Small"
+        icon="progress-check"
+        active={props.navProps.state.index === 2}
+        onPress={() => console.log("click")}
+      />
+      <Drawer.Item
+        label="Villa San Giovanni"
+        icon="check-circle"
+        active={props.navProps.state.index === 3}
+        onPress={() => console.log("click")}
+      />
+      <Drawer.Item
+        label="Roel van Leeuwen"
+        icon="circle"
+        active={props.navProps.state.index === 4}
+        onPress={() => console.log("click")}
+      />
+      <Drawer.Item
+        label="Mario Bertolla"
+        icon="circle"
+        active={props.navProps.state.index === 5}
+        onPress={() => console.log("click")}
+      />
+    </Drawer.Section>
+  </>
 )
 
 export default DrawerContent

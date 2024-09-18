@@ -1,7 +1,6 @@
-import { router } from 'expo-router'
 import { CameraView, CameraType, useCameraPermissions } from 'expo-camera';
 import { useState } from 'react';
-import { Button, StyleSheet, Text, TouchableOpacity, View, Alert, Dimensions } from 'react-native';
+import { Button, StyleSheet, Text, View, Alert, Dimensions } from 'react-native';
 
 const deviceHeight = Dimensions.get("window").height;
 const deviceWidth = Dimensions.get("window").width;
@@ -52,19 +51,15 @@ export default function App() {
         onBarcodeScanned={handleBarCodeScanned}
         barcodeScannerSettings={{ barcodeTypes: ["qr", "datamatrix"] }}
       >
-        <View style={styles.rectangleContainer}>
-          <View style={styles.rectangle}>
-            <View style={styles.rectangleColor} />
-            <View style={styles.topLeft} />
-            <View style={styles.topRight} />
-            <View style={styles.bottomLeft} />
-            <View style={styles.bottomRight} />
-          </View>
+        <View style={styles.rectangle}>
+          <View style={styles.rectangleColor} />
+          <View style={styles.topLeft} />
+          <View style={styles.topRight} />
+          <View style={styles.bottomLeft} />
+          <View style={styles.bottomRight} />
         </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
-            <Text style={styles.text}>Flip Camera</Text>
-          </TouchableOpacity>
+        <View style={styles.textBg}>
+          <Text style={styles.scanText}>Scan the item</Text>
         </View>
       </CameraView>
     </View>
@@ -82,7 +77,8 @@ const styles = StyleSheet.create({
   },
   camera: {
     flex: 1,
-    backgroundColor: 'black'
+    alignItems: 'center',
+    justifyContent: 'space-between'
   },
   buttonContainer: {
     flex: 1,
@@ -100,6 +96,25 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
   },
+  textBg: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    bottom: 150
+  },
+  scanText: {
+    color: 'white',
+    fontSize: 20,
+    textAlign: 'center'
+  },
+  overlay: {
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: deviceHeight,
+    width: deviceWidth,
+    borderLeftColor: 'rgba(0, 0, 0, .75)',
+    borderRightColor: 'rgba(0, 0, 0, .75)',
+  },
   rectangleContainer: {
     flex: 1,
     alignItems: 'center',
@@ -107,19 +122,20 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   rectangle: {
-    borderLeftColor: 'rgba(0, 0, 0, .6)',
-    borderRightColor: 'rgba(0, 0, 0, .6)',
-    borderTopColor: 'rgba(0, 0, 0, .6)',
-    borderBottomColor: 'rgba(0, 0, 0, .6)',
-    borderLeftWidth: deviceWidth / 5,
-    borderRightWidth: deviceWidth / 5,
-    borderTopWidth: deviceHeight / 2,
-    borderBottomWidth: deviceHeight / 4
+    position: 'absolute',
+    borderLeftColor: 'rgba(0, 0, 0, .4)',
+    borderRightColor: 'rgba(0, 0, 0, .4)',
+    borderTopColor: 'rgba(0, 0, 0, .4)',
+    borderBottomColor: 'rgba(0, 0, 0, .402)',
+    borderLeftWidth: deviceWidth / 1,
+    borderRightWidth: deviceWidth / 1,
+    borderTopWidth: deviceHeight / 4,
+    borderBottomWidth: deviceHeight / 3
   },
   rectangleColor: {
     height: 250,
     width: 250,
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
   topLeft: {
     width: 50,

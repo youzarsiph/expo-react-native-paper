@@ -26,28 +26,22 @@ const Login = () => (
         marginHorizontal: 'auto',
       }}
     />
-
-    <Text variant="headlineLarge" style={{ textAlign: 'center' }}>
-      Welcome to ERNP
-    </Text>
-    <Text variant="bodyLarge" style={{ textAlign: 'center' }}>
-      We're excited to have you back. Please log in to continue.
-    </Text>
-
+    <Text variant="headlineMedium" style={{ textAlign: 'center' }}>Welcome to Framer</Text>
+    <Text variant="bodyLarge" style={{ textAlign: 'center' }}>Log in to get started</Text>
     <Formik
       initialValues={{ username: '', password: '' }}
       onSubmit={(values) => console.log(values)}
       validationSchema={Yup.object().shape({
         username: Yup.string()
-          .min(3, 'Too Short!')
-          .max(64, 'Too Long!')
-          .required('Please enter a username.'),
+          .min(6, 'Too short')
+          .max(10, 'Too long')
+          .required('Please enter a username'),
         password: Yup.string()
-          .min(8, 'Too Short! must be at least 8 characters.')
-          .max(64, 'Too Long!')
+          .min(8, 'Must be at least 8 characters')
+          .max(64, 'Too long')
           .matches(
-            /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
-            'Must 1 uppercase, 1 lowercase, 1 number and 1 special case character',
+            /^(?=.*[a-z])(?=.*[0-9])/,
+            'The password must contain letters and numbers',
           )
           .required('Please enter a password'),
       })}
@@ -70,9 +64,9 @@ const Login = () => (
               {errors.username}
             </HelperText>
           </Surface>
-
           <Surface elevation={0}>
             <TextInput
+              secureTextEntry={true}
               maxLength={64}
               mode="outlined"
               label="Password"
@@ -87,20 +81,13 @@ const Login = () => (
               {errors.password}
             </HelperText>
           </Surface>
-
           <Button mode="contained" onPress={() => handleSubmit()}>
             Login
           </Button>
         </>
       )}
     </Formik>
-
-    <Button
-      mode="contained-tonal"
-      onPress={() => router.push('/(auth)/signup')}
-    >
-      New here?
-    </Button>
+    <Button mode="contained-tonal" onPress={() => router.push('/(auth)/signup')} >Forgot password?</Button>
   </Surface>
 )
 

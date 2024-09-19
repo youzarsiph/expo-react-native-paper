@@ -5,7 +5,7 @@ import * as Localization from 'expo-localization'
 import { SplashScreen, Stack } from 'expo-router'
 import * as SecureStore from 'expo-secure-store'
 import React from 'react'
-import { Platform, useColorScheme } from 'react-native'
+import { Platform, useColorScheme, Alert, Text } from 'react-native'
 import { PaperProvider } from 'react-native-paper'
 import Locales from '@/lib/locales'
 import { Setting } from '@/lib/types'
@@ -18,6 +18,13 @@ export const unstable_settings = {
 }
 
 SplashScreen.preventAutoHideAsync() // Prevent the splash screen from auto-hiding before asset loading is complete.
+
+async function getToken(key: string) {
+  let result = await SecureStore.getItemAsync(key);
+  if (result) {
+    return result;
+  }
+}
 
 const RootLayout = () => {
   const [loaded, error] = useFonts({ NotoSans_400Regular, JetBrainsMono_400Regular, ...MaterialCommunityIcons.font })
@@ -39,6 +46,12 @@ const RootLayoutNav = () => {
         if (result === null) { SecureStore.setItemAsync('settings', JSON.stringify(settings)).then((res) => console.log(res)) }
         setSettings(JSON.parse(result ?? JSON.stringify(settings)))
       })
+      // Check auth token
+      SecureStore.getItemAsync('auth_token').then((result) => {
+        if (result) {
+          Alert.alert(result)
+        }
+      })
     } else {
       setSettings({ ...settings, theme: colorScheme ?? 'light' })
     }
@@ -55,7 +68,7 @@ const RootLayoutNav = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-  
+
   return (
     <PaperProvider theme={Themes[settings.theme === 'auto' ? (colorScheme ?? 'dark') : settings.theme][settings.color]}>
       <Stack screenOptions={{

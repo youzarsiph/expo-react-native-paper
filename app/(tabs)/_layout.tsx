@@ -20,7 +20,7 @@ const TabLayout = () => {
           title: "Home",
           headerRight: () => (
               <Tooltip title="Log in">
-                <Appbar.Action icon="account" onPress={() => router.push('/(auth)/login')} />
+                <Appbar.Action icon="account" onPress={() => router.push('/login')} />
               </Tooltip>
           ),
           tabBarIcon: (props) => (
@@ -38,17 +38,17 @@ const TabLayout = () => {
               </Tooltip>
           ),
           tabBarIcon: (props) => (
-            <MaterialCommunityIcons {...props} size={24} name={props.focused ? 'data-matrix-scan' : 'data-matrix'} />
+            <MaterialCommunityIcons {...props} size={24} name={props.focused ? 'qrcode-scan' : 'qrcode'} />
           )
         }}
       />
       <Tabs.Screen
         name="projects"
         options={{
-          title: "Projects",
+          title: "Workspace",
           headerShown: false,
           tabBarIcon: (props) => (
-            <MaterialCommunityIcons {...props} size={24} name={props.focused ? 'folder-multiple' : 'folder-multiple-outline'} />
+            <MaterialCommunityIcons {...props} size={24} name={props.focused ? 'view-dashboard' : 'view-dashboard-outline'} />
           )
         }}
       />

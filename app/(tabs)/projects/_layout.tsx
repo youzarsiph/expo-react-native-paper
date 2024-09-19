@@ -3,8 +3,6 @@ import { Drawer } from 'expo-router/drawer'
 import React from 'react'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { Appbar, Menu, Tooltip, useTheme } from 'react-native-paper'
-
-import Locales from '@/lib/locales'
 import { DrawerContent, DrawerHeader } from '@/lib/ui'
 
 
@@ -31,45 +29,18 @@ const DrawerLayout = () => {
                 <Drawer.Screen
                     name="index"
                     options={{
-                        drawerLabel: "Sawlist",
-                        title: "Sawlist",
-                        headerRight: () => (
-                            <Tooltip title={Locales.t('search')}>
-                                <Appbar.Action icon="magnify" onPress={() => router.push('/search')} />
-                            </Tooltip>
-                        )
-                    }}
-                />
-                <Drawer.Screen
-                    name="profile"
-                    options={{
-                        drawerLabel: Locales.t('profile'),
-                        title: Locales.t('profile'),
+                        drawerLabel: "Current project",
+                        title: "Current project",
                         headerRight: () => (
                             <>
-                                <Tooltip title={Locales.t('search')}>
-                                    <Appbar.Action
-                                        icon="magnify"
-                                        onPress={() => router.push('/search')}
-                                    />
+                                <Tooltip title="Search">
+                                    <Appbar.Action icon="magnify" onPress={() => router.push('/search')} />
+                                </Tooltip>
+                                <Tooltip title="Open project">
+                                    <Appbar.Action icon="home-switch-outline" onPress={() => console.log('click')} />
                                 </Tooltip>
                             </>
-                        ),
-                    }}
-                />
-                <Drawer.Screen
-                    name="settings"
-                    options={{
-                        drawerLabel: Locales.t('titleSettings'),
-                        title: Locales.t('titleSettings'),
-                        headerRight: () => (
-                            <Tooltip title={Locales.t('stackNav')}>
-                                <Appbar.Action
-                                    icon="card-multiple-outline"
-                                    onPress={() => router.push('/modal')}
-                                />
-                            </Tooltip>
-                        ),
+                        )
                     }}
                 />
             </Drawer>

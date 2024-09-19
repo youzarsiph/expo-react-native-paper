@@ -2,7 +2,7 @@
   "expo": {
     "name": "Framer",
     "slug": "Framer",
-    "version": "1.0.0",
+    "version": "0.0.3",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -19,13 +19,15 @@
       "supportsTablet": true,
       "infoPlist": {
         "ExpoLocalization_supportsRTL": true
-      }
+      },
+      "bundleIdentifier": "com.fhg.Framer"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.fhg.Framer"
     },
     "web": {
       "bundler": "metro",

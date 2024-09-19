@@ -1,39 +1,40 @@
-<pre>
 <?php
+
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: PUT, GET, POST");
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 
 require 'vendor/autoload.php';
 
 use \Firebase\JWT\JWT;
 
+$_POST = json_decode(file_get_contents("php://input"), true);
+//print_r($_POST);
 $conn = new mysqli('localhost', 'framer', 'stefan91', 'framer');
 
 $secret_key = 'mostsecuredsecretkeyeveryouseeninyourlife';
 
-print_r($_SERVER);
+if ($_GET['action'] === 'reset_password' || $_POST['action'] === 'reset_password') {
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['action'] === 'change_password') {
-
-	$login = $_GET['login'];
-	$password = password_hash($_GET['password'], PASSWORD_BCRYPT);
-
-	print_r($_GET);
+	$login = $_GET['login'] ? $_GET['login'] : $_POST['login'];
+	$password = password_hash($_GET['password'] ? $_GET['password'] : $_POST['password'], PASSWORD_BCRYPT);
 
 	$stmt = $conn->prepare("UPDATE users SET password = ? WHERE login = ?");
 	$stmt->bind_param("ss", $password, $login);
 	if ($stmt->execute()) {
 		echo json_encode([
 			"status" => "success",
-			"message" => "Password successfuly changed."
+			"message" => "Password successfuly changed"
 		]);
 	} else {
 		echo json_encode([
 			"status" => "error",
-			"message" => "Change password error."
+			"message" => "Change password error"
 		]);
 	}
 	$stmt->close();
 
-} elseif ($_GET['action'] === 'compare_password' || $_POST['action'] === 'auth') {
+} elseif ($_GET['action'] === 'auth' || $_POST['action'] === 'auth') {
 
 	$login = $_GET['login'] ? $_GET['login'] : $_POST['login'];
 	$password = $_GET['password'] ? $_GET['password'] : $_POST['password'];
@@ -57,13 +58,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['action'] === 'change_password
 		$jwt = JWT::encode($token, $secret_key, "HS256");
 		echo json_encode([
 			"status" => "success",
-			"message" => "Correct password.",
+			"message" => "Correct password",
 			"token" => $jwt
 		]);
 	} else {
 		echo json_encode([
 			"status" => "error",
-			"message" => "Wrong password."
+			"message" => "Wrong username or password"
 		]);
 	}
 	$stmt->close();

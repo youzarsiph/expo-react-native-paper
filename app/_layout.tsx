@@ -72,7 +72,7 @@ const RootLayoutNav = () => {
   return (
     <PaperProvider theme={Themes[settings.theme === 'auto' ? (colorScheme ?? 'dark') : settings.theme][settings.color]}>
       <Stack screenOptions={{
-        animation: 'slide_from_bottom',
+        animation: 'ios',
         header: (props) => (
           <StackHeader navProps={props} children={undefined} />
         )
@@ -82,6 +82,7 @@ const RootLayoutNav = () => {
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="search" options={{ title: Locales.t('search') }} />
         <Stack.Screen name="modal" options={{ title: Locales.t('titleModal'), presentation: 'modal' }} />
+        <Stack.Screen name="select-project" options={{ title: 'Select project', presentation: 'modal' }} />
       </Stack>
     </PaperProvider>
   )

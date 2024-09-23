@@ -29,18 +29,57 @@ const DrawerLayout = () => {
                 <Drawer.Screen
                     name="index"
                     options={{
-                        drawerLabel: "Current project",
-                        title: "Current project",
+                        drawerLabel: "Packing list",
+                        title: "Packing list",
                         headerRight: () => (
                             <>
-                                <Tooltip title="Search">
-                                    <Appbar.Action icon="magnify" onPress={() => router.push('/search')} />
-                                </Tooltip>
                                 <Tooltip title="Open project">
-                                    <Appbar.Action icon="home-switch-outline" onPress={() => console.log('click')} />
+                                    <Appbar.Action icon="cloud-search-outline" onPress={() => router.push('/select-project')} />
                                 </Tooltip>
                             </>
                         )
+                    }}
+                />
+                <Drawer.Screen
+                    name="wall-production"
+                    options={{
+                        drawerLabel: "Wall production",
+                        title: "Wall production"
+                    }}
+                />
+                <Drawer.Screen
+                    name="beam-gluing"
+                    options={{
+                        drawerLabel: "Beam gluing",
+                        title: "Beam gluing"
+                    }}
+                />
+                <Drawer.Screen
+                    name="product-loading"
+                    options={{
+                        drawerLabel: "Product loading",
+                        title: "Product loading"
+                    }}
+                />
+                <Drawer.Screen
+                    name="equipment-maintenance"
+                    options={{
+                        drawerLabel: "Equipment maintenance",
+                        title: "Equipment maintenance"
+                    }}
+                />
+                <Drawer.Screen
+                    name="your-activity"
+                    options={{
+                        drawerLabel: "Your activity",
+                        title: "Your activity"
+                    }}
+                />
+                <Drawer.Screen
+                    name="settings"
+                    options={{
+                        drawerLabel: "Settings",
+                        title: "Settings"
                     }}
                 />
             </Drawer>

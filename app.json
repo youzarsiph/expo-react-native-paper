@@ -2,7 +2,7 @@
   "expo": {
     "name": "Framer",
     "slug": "Framer",
-    "version": "0.1.2",
+    "version": "0.1.5",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -60,6 +60,7 @@
         "projectId": "3a948eee-0136-41d1-9d39-49f6d918ad94"
       }
     },
-    "owner": "xak2"
+    "owner": "xak2",
+    "ownCloudAPIKey": "SBBJW-SWXOE-PJPWV-NZKPT"
   }
 }

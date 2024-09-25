@@ -1,10 +1,11 @@
 import React from 'react'
+import { router } from 'expo-router'
 import { Searchbar, Surface, ActivityIndicator, SegmentedButtons, Avatar, Card, IconButton, TouchableRipple } from 'react-native-paper'
-import { ScrollView, Platform, RefreshControl, Alert } from 'react-native'
+import { ScrollView, Platform, RefreshControl } from 'react-native'
 import axios from 'axios'
-import { ScreenInfo, styles } from '@/lib/ui'
+import { styles } from '@/lib/ui'
 
-const Search = () => {
+const SelectProject = () => {
 
   const [query, setQuery] = React.useState('')
   const [loading, setLoading] = React.useState(false)
@@ -16,7 +17,7 @@ const Search = () => {
 
   async function fetchProjects() {
     try {
-      const response = await axios.post('http://app.frame-house.eu/api/project/select-projects.php', { action: 'select_projects' })
+      const response = await axios.post('https://app.frame-house.eu/api/select-projects', { action: 'select-projects' })
       if (response.data.status === 'success') {
         setProjects(response.data.projects)
         setFilteredProjects(response.data.projects)
@@ -87,21 +88,32 @@ const Search = () => {
         return 'hsl(' + h + ', ' + s + '%, ' + l + '%)'
       }
 
-      let bottom_spacing;
+      let bottom_spacing
       Platform.OS == 'android' ? bottom_spacing = 2 : bottom_spacing = 0
 
       return (
         <Card
           style={{ marginTop: 8, marginBottom: 8, marginHorizontal: 16 }}
-          key={project.project_name}
+          key={`project-card-${project.project_id}`}
         >
-          <TouchableRipple borderless style={{ borderRadius: 10 }} rippleColor='rgba(0, 0, 0, .05)' onPress={() => console.log('click')}>
+          <TouchableRipple
+            borderless
+            style={{ borderRadius: 10 }}
+            rippleColor='rgba(0, 0, 0, .05)'
+            onPress={() => router.push(`/open-project/${project.project_id}`)}
+          >
             <Card.Title
               title={project.project_name}
               titleStyle={{ fontWeight: 800 }}
-              subtitle="Preparing | in production | awaiting shiping..."
-              left={(props) => <Avatar.Text {...props} labelStyle={{ fontSize: 20, bottom: bottom_spacing }} style={{ alignItems: 'center', backgroundColor: getRandomColor(project.project_name, 35, 40) }} size={48} label={getUserInitial(project.project_name)} />}
-              right={(props) => <IconButton {...props} icon="chevron-right" onPress={() => { }} />}
+              subtitle="Project information..."
+              left={(props) => <Avatar.Text
+                {...props}
+                size={48}
+                style={{ alignItems: 'center', backgroundColor: getRandomColor(project.project_name, 35, 40) }}
+                labelStyle={{ fontSize: 20, bottom: bottom_spacing }}
+                label={getUserInitial(project.project_name)}
+              />}
+              right={(props) => <IconButton {...props} icon="chevron-right" onPress={() => { console.log(`Button: project-card-${project.project_id}`) }} />}
             ></Card.Title>
           </TouchableRipple>
         </Card>
@@ -143,4 +155,4 @@ const Search = () => {
   )
 }
 
-export default Search
+export default SelectProject

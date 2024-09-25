@@ -17,7 +17,7 @@ const LoginScreen = () => {
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
-        'http://app.frame-house.eu/api/auth/login.php',
+        'https://app.frame-house.eu/api/auth',
         { action: 'auth', login: username, password: password }
       )
       if (response.data.status === 'success') {

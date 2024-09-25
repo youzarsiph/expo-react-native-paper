@@ -8,11 +8,11 @@ $_POST = json_decode(file_get_contents("php://input"), true);
 //print_r($_POST);
 $conn = new mysqli('localhost', 'framer', 'stefan91', 'framer');
 
-//sleep(5);
+//sleep(2);
 
-if ($_GET['action'] === 'select_projects' || $_POST['action'] === 'select_projects') {
+if ($_GET['action'] === 'open-project' || $_POST['action'] === 'open-project') {
 
-    $stmt = $conn->prepare("SELECT project_name FROM project_list GROUP BY project_id");
+    $stmt = $conn->prepare("SELECT project_id, project_name FROM project_list WHERE project_id = '{$_POST['id']}' GROUP BY project_id");
 
     if ($stmt->execute()) {
 
@@ -20,7 +20,7 @@ if ($_GET['action'] === 'select_projects' || $_POST['action'] === 'select_projec
 
         echo json_encode([
             "status" => "success",
-            "projects" => $result->fetch_all(MYSQLI_ASSOC)
+            "project" => $result->fetch_assoc()
         ]);
 
     } else {

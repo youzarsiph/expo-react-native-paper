@@ -83,6 +83,7 @@ const RootLayoutNav = () => {
         <Stack.Screen name="search" options={{ title: Locales.t('search') }} />
         <Stack.Screen name="modal" options={{ title: Locales.t('titleModal'), presentation: 'modal' }} />
         <Stack.Screen name="select-project" options={{ title: 'Select project', presentation: 'modal' }} />
+        <Stack.Screen name="open-project/[id]" options={{ title: 'Project details', presentation: 'modal' }} />
       </Stack>
     </PaperProvider>
   )

@@ -49,7 +49,7 @@ const TabsHome = () => {
         <Card.Title
           title="Gluing press"
           subtitle="Offline"
-          left={(props) => <Avatar.Icon theme={{ colors: Colors[theme].red }} {...props} icon="saw-blade" />}
+          left={(props) => <Avatar.Icon theme={{ colors: Colors[theme].red }} {...props} icon="view-day" />}
         />
       </Surface>
     </Surface>

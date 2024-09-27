@@ -19,9 +19,9 @@ const TabLayout = () => {
         options={{
           title: "Home",
           headerRight: () => (
-              <Tooltip title="Log in">
-                <Appbar.Action icon="account" onPress={() => router.push('/login')} />
-              </Tooltip>
+            <Tooltip title="Log in">
+              <Appbar.Action icon="account" onPress={() => router.push('/login')} />
+            </Tooltip>
           ),
           tabBarIcon: (props) => (
             <MaterialCommunityIcons {...props} size={24} name={props.focused ? 'home-variant' : 'home-variant-outline'} />
@@ -33,9 +33,9 @@ const TabLayout = () => {
         options={{
           title: "Scanner",
           headerRight: () => (
-              <Tooltip title="Scanner history">
-                <Appbar.Action icon="history" onPress={() => console.log('click')} />
-              </Tooltip>
+            <Tooltip title="Scanner history">
+              <Appbar.Action icon="history" onPress={() => console.log('click')} />
+            </Tooltip>
           ),
           tabBarIcon: (props) => (
             <MaterialCommunityIcons {...props} size={24} name={props.focused ? 'qrcode-scan' : 'qrcode'} />

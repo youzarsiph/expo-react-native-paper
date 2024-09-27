@@ -1,14 +1,14 @@
-import { router } from 'expo-router'
-import { Drawer } from 'expo-router/drawer'
 import React from 'react'
+import { Drawer } from 'expo-router/drawer'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
-import { Appbar, Menu, Tooltip, useTheme } from 'react-native-paper'
+import { Appbar, Tooltip, useTheme } from 'react-native-paper'
 import { DrawerContent, DrawerHeader } from '@/lib/ui'
-
+import useFramerStore from '@/lib/utils/store'
 
 const DrawerLayout = () => {
+
     const theme = useTheme()
-    const [visible, setVisible] = React.useState(false)
+    const { activeProject, projectsSBVisibleChange } = useFramerStore()
 
     return (
         <GestureHandlerRootView style={{ flex: 1 }}>
@@ -29,15 +29,22 @@ const DrawerLayout = () => {
                 <Drawer.Screen
                     name="index"
                     options={{
-                        drawerLabel: "Packing list",
-                        title: "Packing list",
+                        drawerLabel: "Projects",
+                        title: "Projects",
                         headerRight: () => (
                             <>
-                                <Tooltip title="Open project">
-                                    <Appbar.Action icon="cloud-search-outline" onPress={() => router.push('/select-project')} />
+                                <Tooltip title="Search project">
+                                    <Appbar.Action icon="magnify" onPress={() => projectsSBVisibleChange()} />
                                 </Tooltip>
                             </>
                         )
+                    }}
+                />
+                <Drawer.Screen
+                    name="sawing-list"
+                    options={{
+                        drawerLabel: "Sawing list",
+                        title: activeProject.name
                     }}
                 />
                 <Drawer.Screen

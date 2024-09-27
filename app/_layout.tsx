@@ -49,7 +49,7 @@ const RootLayoutNav = () => {
       // Check auth token
       SecureStore.getItemAsync('auth_token').then((result) => {
         if (result) {
-          Alert.alert(result)
+          //Alert.alert(result)
         }
       })
     } else {
@@ -82,8 +82,7 @@ const RootLayoutNav = () => {
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="search" options={{ title: Locales.t('search') }} />
         <Stack.Screen name="modal" options={{ title: Locales.t('titleModal'), presentation: 'modal' }} />
-        <Stack.Screen name="select-project" options={{ title: 'Select project', presentation: 'modal' }} />
-        <Stack.Screen name="open-project/[id]" options={{ title: 'Project details', presentation: 'modal' }} />
+        <Stack.Screen name="open-project/[id]" options={{ title: 'Details', presentation: 'modal' }} />
       </Stack>
     </PaperProvider>
   )

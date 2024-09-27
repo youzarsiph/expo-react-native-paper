@@ -1,5 +1,6 @@
 {
     "require": {
-        "firebase/php-jwt": "^6.10"
+        "firebase/php-jwt": "^6.10",
+        "sabre/dav": "~4.6.0"
     }
 }

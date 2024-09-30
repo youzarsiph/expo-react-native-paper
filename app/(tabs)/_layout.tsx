@@ -11,7 +11,7 @@ const TabLayout = () => {
       tabBar={(props) => <TabBar {...props} />}
       screenOptions={{
         tabBarHideOnKeyboard: true,
-        header: (props) => <TabsHeader navProps={props} children={undefined} />
+        header: (props) => <TabsHeader mode='center-aligned' navProps={props} children={undefined} />
       }}
     >
       <Tabs.Screen

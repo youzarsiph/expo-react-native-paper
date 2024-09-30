@@ -17,9 +17,7 @@ const SelectProject = () => {
   const [projectLoading, setProjectLoading] = React.useState(true)
   const deviceWidth = Dimensions.get("window").width;
 
-  const { projectsSBVisible, activeProject, setActiveProject } = useFramerStore()
-
-  console.log(activeProject)
+  const { projectsSBVisible, activeProject, setActiveProject, setOpenedProjectName } = useFramerStore()
 
   async function fetchProjects() {
     try {
@@ -107,7 +105,10 @@ const SelectProject = () => {
             borderless
             style={{ borderRadius: 10 }}
             rippleColor='rgba(0, 0, 0, .05)'
-            onPress={() => router.push(`/open-project/${project.project_id}`)}
+            onPress={() => {
+              setOpenedProjectName(project.project_name)
+              router.push({ pathname: `/open-project/${project.project_id}` })
+            }}
           >
             <Card.Title
               title={project.project_name}
@@ -120,7 +121,10 @@ const SelectProject = () => {
                 labelStyle={{ fontSize: 20, bottom: bottom_spacing }}
                 label={getUserInitial(project.project_name)}
               />}
-              right={(props) => <IconButton {...props} icon="chevron-right" onPress={() => { setActiveProject({ id: project.project_id, name: project.project_name }) }} />}
+              right={(props) => <IconButton {...props} icon="chevron-right" onPress={() => {
+                setActiveProject({ id: project.project_id, name: project.project_name })
+                router.push({ pathname: `/projects/sawing-list` })
+              }} />}
             ></Card.Title>
           </TouchableRipple>
         </Card>

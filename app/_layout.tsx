@@ -4,12 +4,13 @@ import { NotoSans_400Regular } from '@expo-google-fonts/noto-sans'
 import * as Localization from 'expo-localization'
 import { SplashScreen, Stack } from 'expo-router'
 import * as SecureStore from 'expo-secure-store'
-import React from 'react'
+import React, { useState } from 'react'
 import { Platform, useColorScheme, Alert, Text } from 'react-native'
 import { PaperProvider } from 'react-native-paper'
 import Locales from '@/lib/locales'
 import { Setting } from '@/lib/types'
 import { StackHeader, Themes } from '@/lib/ui'
+import useFramerStore from '@/lib/utils/store'
 
 export { ErrorBoundary } from 'expo-router'
 
@@ -26,7 +27,7 @@ async function getToken(key: string) {
   }
 }
 
-const RootLayout = () => {
+function RootLayout() {
   const [loaded, error] = useFonts({ NotoSans_400Regular, JetBrainsMono_400Regular, ...MaterialCommunityIcons.font })
   React.useEffect(() => { if (error) throw error }, [error])
   React.useEffect(() => { if (loaded) { SplashScreen.hideAsync() } }, [loaded])
@@ -38,6 +39,7 @@ const RootLayoutNav = () => {
 
   const colorScheme = useColorScheme()
   const [settings, setSettings] = React.useState<Setting>({ theme: 'auto', color: 'default', language: 'auto' })
+  const { openedProjectName } = useFramerStore()
 
   // Load settings from the device
   React.useEffect(() => {
@@ -73,16 +75,14 @@ const RootLayoutNav = () => {
     <PaperProvider theme={Themes[settings.theme === 'auto' ? (colorScheme ?? 'dark') : settings.theme][settings.color]}>
       <Stack screenOptions={{
         animation: 'ios',
-        header: (props) => (
-          <StackHeader navProps={props} children={undefined} />
-        )
+        header: (props) => (<StackHeader navProps={props} children={undefined} />)
       }}
       >
         <Stack.Screen name="(auth)" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="search" options={{ title: Locales.t('search') }} />
         <Stack.Screen name="modal" options={{ title: Locales.t('titleModal'), presentation: 'modal' }} />
-        <Stack.Screen name="open-project/[id]" options={{ title: 'Details', presentation: 'modal' }} />
+        <Stack.Screen name="open-project/[id]" options={{ title: openedProjectName, presentation: 'modal' }} />
       </Stack>
     </PaperProvider>
   )

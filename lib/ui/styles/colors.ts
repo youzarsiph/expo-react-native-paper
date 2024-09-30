@@ -8,7 +8,7 @@ const Colors = {
   light: {
     default: {
       primary: MD3LightTheme.colors.primary,
-      onPrimary: MD3LightTheme.colors.onPrimary,
+      onPrimary: MD3LightTheme.colors.onPrimary
     },
     orange: {
       primary: 'rgb(176, 46, 0)',
@@ -46,7 +46,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(32, 26, 24, 0.12)',
       onSurfaceDisabled: 'rgba(32, 26, 24, 0.38)',
-      backdrop: 'rgba(59, 45, 41, 0.4)',
+      backdrop: 'rgba(59, 45, 41, 0.4)'
     },
     red: {
       primary: 'rgb(185, 12, 85)',
@@ -84,7 +84,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(32, 26, 27, 0.12)',
       onSurfaceDisabled: 'rgba(32, 26, 27, 0.38)',
-      backdrop: 'rgba(58, 45, 47, 0.4)',
+      backdrop: 'rgba(58, 45, 47, 0.4)'
     },
     violet: {
       primary: 'rgb(140, 51, 179)',
@@ -122,7 +122,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(30, 27, 30, 0.12)',
       onSurfaceDisabled: 'rgba(30, 27, 30, 0.38)',
-      backdrop: 'rgba(53, 46, 54, 0.4)',
+      backdrop: 'rgba(53, 46, 54, 0.4)'
     },
     indigo: {
       primary: 'rgb(104, 71, 192)',
@@ -160,7 +160,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(28, 27, 30, 0.12)',
       onSurfaceDisabled: 'rgba(28, 27, 30, 0.38)',
-      backdrop: 'rgba(50, 47, 56, 0.4)',
+      backdrop: 'rgba(50, 47, 56, 0.4)'
     },
     blue: {
       primary: 'rgb(0, 99, 154)',
@@ -198,7 +198,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(26, 28, 30, 0.12)',
       onSurfaceDisabled: 'rgba(26, 28, 30, 0.38)',
-      backdrop: 'rgba(44, 49, 55, 0.4)',
+      backdrop: 'rgba(44, 49, 55, 0.4)'
     },
     teal: {
       primary: 'rgb(0, 104, 116)',
@@ -236,7 +236,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(25, 28, 29, 0.12)',
       onSurfaceDisabled: 'rgba(25, 28, 29, 0.38)',
-      backdrop: 'rgba(41, 50, 52, 0.4)',
+      backdrop: 'rgba(41, 50, 52, 0.4)'
     },
     cyan: {
       primary: 'rgb(0, 107, 94)',
@@ -274,7 +274,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(25, 28, 27, 0.12)',
       onSurfaceDisabled: 'rgba(25, 28, 27, 0.38)',
-      backdrop: 'rgba(41, 50, 48, 0.4)',
+      backdrop: 'rgba(41, 50, 48, 0.4)'
     },
     green: {
       primary: 'rgb(16, 109, 32)',
@@ -312,7 +312,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(26, 28, 25, 0.12)',
       onSurfaceDisabled: 'rgba(26, 28, 25, 0.38)',
-      backdrop: 'rgba(44, 50, 42, 0.4)',
+      backdrop: 'rgba(44, 50, 42, 0.4)'
     },
     lime: {
       primary: 'rgb(56, 107, 1)',
@@ -350,7 +350,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(26, 28, 24, 0.12)',
       onSurfaceDisabled: 'rgba(26, 28, 24, 0.38)',
-      backdrop: 'rgba(45, 50, 40, 0.4)',
+      backdrop: 'rgba(45, 50, 40, 0.4)'
     },
     olive: {
       primary: 'rgb(95, 98, 0)',
@@ -388,7 +388,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(28, 28, 23, 0.12)',
       onSurfaceDisabled: 'rgba(28, 28, 23, 0.38)',
-      backdrop: 'rgba(49, 49, 37, 0.4)',
+      backdrop: 'rgba(49, 49, 37, 0.4)'
     },
     brown: {
       primary: 'rgb(155, 68, 39)',
@@ -426,13 +426,13 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(32, 26, 24, 0.12)',
       onSurfaceDisabled: 'rgba(32, 26, 24, 0.38)',
-      backdrop: 'rgba(59, 45, 41, 0.4)',
+      backdrop: 'rgba(59, 45, 41, 0.4)'
     },
   },
   dark: {
     default: {
       primary: MD3DarkTheme.colors.primary,
-      onPrimary: MD3DarkTheme.colors.onPrimary,
+      onPrimary: MD3DarkTheme.colors.onPrimary
     },
     orange: {
       primary: 'rgb(255, 183, 134)',
@@ -474,7 +474,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(236, 224, 218, 0.12)',
       onSurfaceDisabled: 'rgba(236, 224, 218, 0.38)',
-      backdrop: 'rgba(58, 46, 38, 0.4)',
+      backdrop: 'rgba(58, 46, 38, 0.4)'
     },
     red: {
       primary: 'rgb(255, 177, 194)',
@@ -516,7 +516,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(236, 224, 224, 0.12)',
       onSurfaceDisabled: 'rgba(236, 224, 224, 0.38)',
-      backdrop: 'rgba(58, 45, 47, 0.4)',
+      backdrop: 'rgba(58, 45, 47, 0.4)'
     },
     violet: {
       primary: 'rgb(235, 178, 255)',
@@ -558,7 +558,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(232, 224, 229, 0.12)',
       onSurfaceDisabled: 'rgba(232, 224, 229, 0.38)',
-      backdrop: 'rgba(53, 46, 54, 0.4)',
+      backdrop: 'rgba(53, 46, 54, 0.4)'
     },
     indigo: {
       primary: 'rgb(206, 189, 255)',
@@ -600,7 +600,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(230, 225, 230, 0.12)',
       onSurfaceDisabled: 'rgba(230, 225, 230, 0.38)',
-      backdrop: 'rgba(50, 47, 56, 0.4)',
+      backdrop: 'rgba(50, 47, 56, 0.4)'
     },
     blue: {
       primary: 'rgb(150, 204, 255)',
@@ -642,7 +642,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(226, 226, 229, 0.12)',
       onSurfaceDisabled: 'rgba(226, 226, 229, 0.38)',
-      backdrop: 'rgba(44, 49, 55, 0.4)',
+      backdrop: 'rgba(44, 49, 55, 0.4)'
     },
     teal: {
       primary: 'rgb(79, 216, 235)',
@@ -684,7 +684,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(225, 227, 227, 0.12)',
       onSurfaceDisabled: 'rgba(225, 227, 227, 0.38)',
-      backdrop: 'rgba(41, 50, 52, 0.4)',
+      backdrop: 'rgba(41, 50, 52, 0.4)'
     },
     cyan: {
       primary: 'rgb(85, 219, 198)',
@@ -726,7 +726,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(224, 227, 225, 0.12)',
       onSurfaceDisabled: 'rgba(224, 227, 225, 0.38)',
-      backdrop: 'rgba(41, 50, 48, 0.4)',
+      backdrop: 'rgba(41, 50, 48, 0.4)'
     },
     green: {
       primary: 'rgb(130, 219, 126)',
@@ -768,7 +768,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(226, 227, 221, 0.12)',
       onSurfaceDisabled: 'rgba(226, 227, 221, 0.38)',
-      backdrop: 'rgba(44, 50, 42, 0.4)',
+      backdrop: 'rgba(44, 50, 42, 0.4)'
     },
     lime: {
       primary: 'rgb(156, 215, 105)',
@@ -810,7 +810,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(227, 227, 220, 0.12)',
       onSurfaceDisabled: 'rgba(227, 227, 220, 0.38)',
-      backdrop: 'rgba(45, 50, 40, 0.4)',
+      backdrop: 'rgba(45, 50, 40, 0.4)'
     },
     olive: {
       primary: 'rgb(200, 206, 68)',
@@ -852,7 +852,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(229, 226, 218, 0.12)',
       onSurfaceDisabled: 'rgba(229, 226, 218, 0.38)',
-      backdrop: 'rgba(49, 49, 37, 0.4)',
+      backdrop: 'rgba(49, 49, 37, 0.4)'
     },
     brown: {
       primary: 'rgb(255, 181, 158)',
@@ -894,7 +894,7 @@ const Colors = {
       },
       surfaceDisabled: 'rgba(237, 224, 220, 0.12)',
       onSurfaceDisabled: 'rgba(237, 224, 220, 0.38)',
-      backdrop: 'rgba(59, 45, 41, 0.4)',
+      backdrop: 'rgba(59, 45, 41, 0.4)'
     },
   },
 }

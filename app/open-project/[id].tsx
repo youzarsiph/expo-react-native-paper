@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
-import { router } from 'expo-router'
-import { useLocalSearchParams } from 'expo-router'
+import { useLocalSearchParams, useNavigation } from 'expo-router'
 import { ScrollView, Dimensions, Alert } from 'react-native'
 import { Surface, ActivityIndicator, Text, Chip, Divider, Button, useTheme, Dialog, Portal, Avatar, TouchableRipple, Card, Banner, Icon } from 'react-native-paper'
 import axios from 'axios'
 import { Colors, styles } from '@/lib/ui'
-
 import { PieChart } from "react-native-chart-kit"
 
 const OpenProject = () => {
@@ -24,40 +22,66 @@ const OpenProject = () => {
   const colors = useTheme().colors
   const screenWidth = Dimensions.get("window").width
 
+  function rgb2hex(orig: any, percent: number) {
+    orig = orig.replace(/[^,]+(?=\))/, percent);
+    var a, isPercent,
+      rgb = orig.replace(/\s/g, '').match(/^rgba?\((\d+),(\d+),(\d+),?([^,\s)]+)?/i),
+      alpha = (rgb && rgb[4] || "").trim(),
+      hex = rgb ? "#" +
+      (rgb[1] | 1 << 8).toString(16).slice(1) +
+      (rgb[2] | 1 << 8).toString(16).slice(1) +
+      (rgb[3] | 1 << 8).toString(16).slice(1) : orig;
+    if (alpha !== "") {
+      isPercent = alpha.indexOf("%") > -1;
+      a = parseFloat(alpha);
+      if (!isPercent && a >= 0 && a <= 1) {
+        a = Math.round(255 * a);
+      } else if (isPercent && a >= 0 && a <= 100) {
+        a = Math.round(255 * a / 100)
+      } else {
+        a = "";
+      }
+    }
+    if (a) {
+      hex += (a | 1 << 8).toString(16).slice(1);
+    }
+    return hex;
+  }
+
   // each value represents a goal ring in Progress chart
   const dataChart = [
     {
       name: "Sawed SC1",
       percents: 25,
-      color: "#8db3d6",
+      color: colors.primary,
       legendFontColor: "#7F7F7F",
       legendFontSize: 14
     },
     {
       name: "Sawed K2",
       percents: 15,
-      color: "#a9d68d",
+      color: rgb2hex(colors.primary, 0.8),
       legendFontColor: "#7F7F7F",
       legendFontSize: 14
     },
     {
       name: "Produced",
       percents: 35,
-      color: "#d6c08d",
+      color: rgb2hex(colors.primary, 0.6),
       legendFontColor: "#7F7F7F",
       legendFontSize: 14
     },
     {
       name: "Glued",
       percents: 10,
-      color: "#d68dba",
+      color: rgb2hex(colors.primary, 0.4),
       legendFontColor: "#7F7F7F",
       legendFontSize: 14
     },
     {
       name: "Rest",
       percents: 20,
-      color: colors.outlineVariant,
+      color: colors.backdrop,
       legendFontColor: "#7F7F7F",
       legendFontSize: 14
     }
@@ -153,8 +177,6 @@ const OpenProject = () => {
       </Portal>
       <ScrollView>
         <Surface style={{ flex: 1, gap: 16, paddingHorizontal: 16, paddingVertical: 16 }}>
-          <Text variant="headlineMedium">{data.project_name}</Text>
-          <Divider />
           <Text variant="titleMedium" style={{ fontWeight: 900 }}>PRODUCTION DATES</Text>
           <Surface elevation={0} style={{ flexDirection: 'row', gap: 8 }}>
             <Chip icon="calendar-month">24/09/2024</Chip>

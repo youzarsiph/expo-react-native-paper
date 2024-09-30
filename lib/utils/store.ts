@@ -8,9 +8,12 @@ type Store = {
     projectsSBVisible: boolean
     projectsSBVisibleChange: () => void
 
-    activeProject: { id: number, name: string },
+    activeProject: { id: number, name: string }
     setActiveProject: (prop: any) => void
-};
+
+    openedProjectName: string
+    setOpenedProjectName: (prop: string) => void
+}
 
 const useFramerStore = create<Store>((set) => ({
     bears: 0,
@@ -21,7 +24,10 @@ const useFramerStore = create<Store>((set) => ({
     projectsSBVisibleChange: () => set((state: any) => ({ projectsSBVisible: state.projectsSBVisible == true ? false : true })),
 
     activeProject: { id: 0, name: ''},
-    setActiveProject: (newActiveProject: any) => set(() => ({ activeProject: newActiveProject }))
+    setActiveProject: (newActiveProject: any) => set(() => ({ activeProject: newActiveProject })),
+
+    openedProjectName: 'Default',
+    setOpenedProjectName: (state: string) => set({openedProjectName: state})
 }))
 
 export default useFramerStore

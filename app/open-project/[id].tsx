@@ -144,20 +144,20 @@ const OpenProject = () => {
 
   const fileList = files.map((file: any) => {
     return (
-      <Surface elevation={0}
-        key={`file-${file.id}`}>
+      <Surface elevation={0} key={`file-${file.id}`}>
         <TouchableRipple
           borderless
           style={{ borderRadius: 12 }}
           rippleColor='rgba(0, 0, 0, .05)'
           onPress={() => importCodes({ pid: data.project_id, file: file.url })}
         >
-          <Card.Title
+          <Card elevation={5}>
+            <Card.Title
             title={file.name}
             subtitle={file.modified}
             left={(props) => <Avatar.Icon {...props} icon="folder-zip-outline" />}
-            style={{ borderWidth: 1, borderStyle: "dashed", borderRadius: 12, borderColor: colors.onPrimaryContainer }}
           />
+          </Card>
         </TouchableRipple>
       </Surface>
     )

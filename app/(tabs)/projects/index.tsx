@@ -134,7 +134,7 @@ const SelectProject = () => {
   }
 
   return (
-    <Surface elevation={1} style={{ flex: 1 }}>
+    <Surface elevation={0} style={{ flex: 1 }}>
       <Banner visible={projectsSBVisible} elevation={1} style={{ zIndex: 999 }}>
         <Searchbar
           value={query}
@@ -168,7 +168,9 @@ const SelectProject = () => {
         />
       </Banner>
       <ScrollView refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
-        <ProjectList />
+        <Surface style={{ paddingVertical: 8}}>
+          <ProjectList />
+        </Surface>
       </ScrollView>
     </Surface>
   )

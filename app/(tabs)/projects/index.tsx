@@ -113,7 +113,7 @@ const SelectProject = () => {
             <Card.Title
               title={project.project_name}
               titleStyle={{ fontWeight: 800 }}
-              subtitle="Project information..."
+              subtitle={project.project_status}
               left={(props) => <Avatar.Text
                 {...props}
                 size={48}

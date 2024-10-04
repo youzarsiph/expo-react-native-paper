@@ -1,14 +1,23 @@
 import React, { useState } from 'react'
-import { useLocalSearchParams, useNavigation } from 'expo-router'
-import { ScrollView, Dimensions, Alert } from 'react-native'
-import { Surface, ActivityIndicator, Text, Chip, Divider, Button, useTheme, Dialog, Portal, Avatar, TouchableRipple, Card, Banner, Icon } from 'react-native-paper'
 import axios from 'axios'
-import { Colors, styles } from '@/lib/ui'
-import { PieChart } from "react-native-chart-kit"
+import { useLocalSearchParams } from 'expo-router'
+import { ScrollView, Dimensions } from 'react-native'
+import { Surface, ActivityIndicator, Text, Chip, Divider, Button, useTheme, Dialog, Portal, Avatar, TouchableRipple, Card, Banner, IconButton, Icon } from 'react-native-paper'
+import { Notifier, NotifierComponents } from 'react-native-notifier'
+import { Colors, styles, CircularChart } from '@/lib/ui'
+import { rgb2hex } from '@/lib/utils'
+
 
 const OpenProject = () => {
 
-  const [data, setData] = useState({ project_name: '', project_id: '' })
+  const [projectData, setProjectData] = useState({
+    project_id: '',
+    project_name: '',
+    project_production_start_date: 0,
+    project_production_end_date: 0,
+    project_status: '',
+    project_codes_import_date: null
+  })
   const [files, setFiles] = useState([])
   const [projectLoading, setProjectLoading] = useState(true)
   const [showDialog, setShowDialog] = useState(false)
@@ -22,80 +31,11 @@ const OpenProject = () => {
   const colors = useTheme().colors
   const screenWidth = Dimensions.get("window").width
 
-  function rgb2hex(orig: any, percent: number) {
-    orig = orig.replace(/[^,]+(?=\))/, percent);
-    var a, isPercent,
-      rgb = orig.replace(/\s/g, '').match(/^rgba?\((\d+),(\d+),(\d+),?([^,\s)]+)?/i),
-      alpha = (rgb && rgb[4] || "").trim(),
-      hex = rgb ? "#" +
-      (rgb[1] | 1 << 8).toString(16).slice(1) +
-      (rgb[2] | 1 << 8).toString(16).slice(1) +
-      (rgb[3] | 1 << 8).toString(16).slice(1) : orig;
-    if (alpha !== "") {
-      isPercent = alpha.indexOf("%") > -1;
-      a = parseFloat(alpha);
-      if (!isPercent && a >= 0 && a <= 1) {
-        a = Math.round(255 * a);
-      } else if (isPercent && a >= 0 && a <= 100) {
-        a = Math.round(255 * a / 100)
-      } else {
-        a = "";
-      }
-    }
-    if (a) {
-      hex += (a | 1 << 8).toString(16).slice(1);
-    }
-    return hex;
-  }
-
-  // each value represents a goal ring in Progress chart
-  const dataChart = [
-    {
-      name: "Sawed SC1",
-      percents: 25,
-      color: colors.primary,
-      legendFontColor: "#7F7F7F",
-      legendFontSize: 14
-    },
-    {
-      name: "Sawed K2",
-      percents: 15,
-      color: rgb2hex(colors.primary, 0.8),
-      legendFontColor: "#7F7F7F",
-      legendFontSize: 14
-    },
-    {
-      name: "Produced",
-      percents: 35,
-      color: rgb2hex(colors.primary, 0.6),
-      legendFontColor: "#7F7F7F",
-      legendFontSize: 14
-    },
-    {
-      name: "Glued",
-      percents: 10,
-      color: rgb2hex(colors.primary, 0.4),
-      legendFontColor: "#7F7F7F",
-      legendFontSize: 14
-    },
-    {
-      name: "Rest",
-      percents: 20,
-      color: colors.backdrop,
-      legendFontColor: "#7F7F7F",
-      legendFontSize: 14
-    }
-  ]
-
-  const chartConfig = {
-    color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`
-  }
-
   async function fetchProjectData() {
     try {
       const response = await axios.post('https://app.frame-house.eu/api/open-project', { action: 'open-project', id: id })
       if (response.data.status === 'success') {
-        setData(response.data.project)
+        setProjectData(response.data.project)
         const codes = await axios.post('https://app.frame-house.eu/api/load-codes', { action: 'load-codes' })
         if (codes.data.status === 'success') {
           const filteredItems = codes.data.files.filter((p: any) =>
@@ -116,10 +56,39 @@ const OpenProject = () => {
       const response = await axios.post('https://app.frame-house.eu/api/import-codes', { action: 'import-codes', ...props })
       console.log(response)
       if (response.data.status === 'success') {
+
         setProjectLoading(false)
         setShowDialog(false)
-        setBannerData('Codes successfuly imported and sawlist created!')
-        setShowBanner(true)
+
+        Notifier.showNotification({
+          title: 'Success!',
+          description: response.data.message,
+          duration: 9000,
+          Component: NotifierComponents.Alert,
+          componentProps: {
+            alertType: 'success',
+            titleStyle: { marginTop: 48 },
+            descriptionStyle: { marginBottom: 16 }
+          }
+        })
+
+      } else {
+
+        setProjectLoading(false)
+        setShowDialog(false)
+
+        Notifier.showNotification({
+          title: 'Error!',
+          description: response.data.message,
+          duration: 9000,
+          Component: NotifierComponents.Alert,
+          componentProps: {
+            alertType: 'error',
+            titleStyle: { marginTop: 48 },
+            descriptionStyle: { marginBottom: 16 }
+          }
+        })
+
       }
     } catch (error: any) {
       setProjectLoading(false)
@@ -149,23 +118,32 @@ const OpenProject = () => {
           borderless
           style={{ borderRadius: 12 }}
           rippleColor='rgba(0, 0, 0, .05)'
-          onPress={() => importCodes({ pid: data.project_id, file: file.url })}
+          onPress={() => importCodes({ pid: projectData.project_id, file: file.url })}
         >
           <Card elevation={5}>
             <Card.Title
-            title={file.name}
-            subtitle={file.modified}
-            left={(props) => <Avatar.Icon {...props} icon="folder-zip-outline" />}
-          />
+              title={file.name}
+              subtitle={file.modified}
+              left={(props) => <Avatar.Icon {...props} icon="folder-zip-outline" />}
+            />
           </Card>
         </TouchableRipple>
       </Surface>
     )
   })
 
+  const chartData = [
+    { id: 0, name: "Total", value: 92, color: rgb2hex(colors.primary, 1), icon: 'check-circle-outline' },
+    { id: 1, name: "Walls", value: 87, color: rgb2hex(colors.primary, 0.8), icon: 'screw-flat-top' },
+    { id: 2, name: "K2", value: 31, color: rgb2hex(colors.primary, 0.6), icon: 'saw-blade' },
+    { id: 3, name: "SC1", value: 38, color: rgb2hex(colors.primary, 0.4), icon: 'saw-blade' },
+    { id: 4, name: "Rest", value: 8, color: rgb2hex(colors.primary, 0.2), icon: 'checkbox-blank-circle-outline' }
+  ]
+
   return (
     <Surface style={{ flex: 1 }}>
       <Banner style={{ zIndex: 999 }} visible={showBanner} actions={[{ label: 'Close', onPress: () => setShowBanner(false) }]} elevation={4}>{bannerData}</Banner>
+
       <Portal>
         <Dialog visible={showDialog} onDismiss={() => setShowDialog(false)}>
           <Dialog.Content>
@@ -175,46 +153,90 @@ const OpenProject = () => {
           </Dialog.Content>
         </Dialog>
       </Portal>
+
       <ScrollView>
         <Surface style={{ flex: 1, gap: 16, paddingHorizontal: 16, paddingVertical: 16 }}>
-          <Text variant="titleMedium" style={{ fontWeight: 900 }}>PRODUCTION DATES</Text>
-          <Surface elevation={0} style={{ flexDirection: 'row', gap: 8 }}>
-            <Chip icon="calendar-month">24/09/2024</Chip>
-            <Chip icon="calendar-multiple-check">27/09/2024</Chip>
-          </Surface>
-          <Divider />
-          <Text variant="titleMedium" style={{ fontWeight: 900 }}>STATUS</Text>
-          <Surface elevation={0} style={{ flexDirection: 'row', gap: 8, alignItems: 'center', justifyContent: 'center' }}>
-            <PieChart
-              data={dataChart}
-              width={screenWidth}
-              height={220}
-              chartConfig={chartConfig}
-              accessor={"percents"}
-              backgroundColor={"transparent"}
-              paddingLeft={"16"}
+
+          <Card>
+            <Card.Title
+              title="Production"
+              titleVariant="titleLarge"
+              subtitle={projectData.project_status}
+              left={(props) => <Avatar.Icon {...props} icon="calendar-month-outline" />}
+              right={(props) => <IconButton {...props} icon="dots-vertical" onPress={() => { console.log('click-clack') }} />}
             />
-          </Surface>
-          <Divider />
-          <Text variant="titleMedium" style={{ fontWeight: 900 }}>SAWLIST</Text>
-          <Surface elevation={0}>
-            <Button icon="cloud-upload-outline" mode="contained" disabled={files.length > 0 ? false : true} onPress={() => setShowDialog(true)}>Import from ownCloud</Button>
-          </Surface>
-          <Divider />
-          <Text variant="titleMedium" style={{ fontWeight: 900 }}>PRESET</Text>
-          <Surface elevation={0} style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
-            <Chip icon="alpha-s-circle-outline" theme={{ colors: Colors[theme].olive }}>Standart</Chip>
-            <Chip icon="alpha-v-circle-outline" theme={{ colors: Colors[theme].orange }}>Vapor membrane</Chip>
-            <Chip icon="alpha-d-circle-outline" theme={{ colors: Colors[theme].blue }}>Double rafters</Chip>
-          </Surface>
-          <Divider />
-          <Text variant="titleMedium" style={{ fontWeight: 900 }}>LOADING</Text>
-          <Surface elevation={0} style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
-            <Chip icon="truck-check-outline">29/09/2024</Chip>
-            <Chip icon="truck-outline">01/10/2024</Chip>
-            <Chip icon="truck-outline">02/10/2024</Chip>
-            <Chip icon="truck-outline">05/10/2024</Chip>
-          </Surface>
+            <Card.Content>
+              <Surface elevation={0} style={{ flexDirection: "row", columnGap: 16 }}>
+                <Surface elevation={0} style={{ flex: 0.5 }}>
+                  <Text style={{ paddingBottom: 8 }}>Production start date</Text>
+                  <Chip icon="calendar-range">{new Date(projectData.project_production_start_date * 1000).toDateString()}</Chip>
+                </Surface>
+                <Surface elevation={0} style={{ flex: 0.5 }}>
+                  <Text style={{ paddingBottom: 8 }}>Production end date</Text>
+                  <Chip icon="calendar-check">{new Date(projectData.project_production_end_date * 1000).toDateString()}</Chip>
+                </Surface>
+              </Surface>
+            </Card.Content>
+          </Card>
+
+          <Card>
+            <Card.Title
+              title="Statistics"
+              titleVariant="titleLarge"
+              left={(props) => <Avatar.Icon {...props} icon="chart-bar-stacked" />}
+            />
+            <Card.Content>
+              <Surface elevation={0} style={{ flexDirection: "row", columnGap: 16 }}>
+                <CircularChart data={chartData} config={{ horizontalPadding: 32, containerHeight: 200 }} />
+              </Surface>
+            </Card.Content>
+          </Card>
+
+          <Card>
+            <Card.Title
+              title="Sawlist"
+              titleVariant="titleLarge"
+              left={(props) => <Avatar.Icon {...props} icon="saw-blade" />}
+              right={(props) => <IconButton {...props} icon="cloud-upload-outline" disabled={files.length > 0 ? false : true} onPress={() => setShowDialog(true)} />}
+            />
+            <Card.Content>
+              {projectData.project_codes_import_date === null ? <Text>Not imported</Text> : <Text>Imported</Text>}
+            </Card.Content>
+          </Card>
+
+          <Card>
+            <Card.Title
+              title="Preset"
+              titleVariant="titleLarge"
+              left={(props) => <Avatar.Icon {...props} icon="cog" />}
+              right={(props) => <IconButton {...props} icon="dots-vertical" disabled={files.length > 0 ? false : true} onPress={() => setShowDialog(true)} />}
+            />
+            <Card.Content>
+              <Surface elevation={0} style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+                <Chip icon="alpha-s-circle-outline" theme={{ colors: Colors[theme].olive }}>Standart</Chip>
+                <Chip icon="alpha-v-circle-outline" theme={{ colors: Colors[theme].orange }}>Vapor membrane</Chip>
+                <Chip icon="alpha-d-circle-outline" theme={{ colors: Colors[theme].blue }}>Double rafters</Chip>
+              </Surface>
+            </Card.Content>
+          </Card>
+
+          <Card>
+            <Card.Title
+              title="Loading"
+              titleVariant="titleLarge"
+              left={(props) => <Avatar.Icon {...props} icon="truck" />}
+              right={(props) => <IconButton {...props} icon="dots-vertical" disabled={files.length > 0 ? false : true} onPress={() => setShowDialog(true)} />}
+            />
+            <Card.Content>
+              <Surface elevation={0} style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+                <Chip icon="truck-check-outline">29/09/2024</Chip>
+                <Chip icon="truck-outline">01/10/2024</Chip>
+                <Chip icon="truck-outline">02/10/2024</Chip>
+                <Chip icon="truck-outline">05/10/2024</Chip>
+              </Surface>
+            </Card.Content>
+          </Card>
+
         </Surface>
       </ScrollView>
     </Surface>

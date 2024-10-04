@@ -12,7 +12,7 @@ $conn = new mysqli('localhost', 'framer', 'stefan91', 'framer');
 
 if ($_GET['action'] === 'open-project' || $_POST['action'] === 'open-project') {
 
-    $stmt = $conn->prepare("SELECT project_id, project_name FROM project_list WHERE project_id = '{$_POST['id']}' GROUP BY project_id");
+    $stmt = $conn->prepare("SELECT * FROM project_list WHERE project_id = '{$_POST['id']}' GROUP BY project_id");
 
     if ($stmt->execute()) {
 

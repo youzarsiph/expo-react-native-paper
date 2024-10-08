@@ -27,7 +27,12 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.fhg.Framer"
+      "package": "com.fhg.Framer",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyCi0nKl1x0P3V7W3ReyFA_D6Win5H-BPdA"
+        }
+      }
     },
     "web": {
       "bundler": "metro",
@@ -45,6 +50,12 @@
           "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
           "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
           "recordAudioAndroid": true
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
         }
       ]
     ],

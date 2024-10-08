@@ -11,6 +11,7 @@ import StackHeader from '@/lib/ui/components/StackHeader'
 import TabBar from '@/lib/ui/components/TabBar'
 import TabsHeader from '@/lib/ui/components/TabsHeader'
 import CircularChart from '@/lib/ui/components/CircularChart'
+import ProjectPreset from '@/lib/ui/components/ProjectPreset'
 
 export {
   DrawerContent,
@@ -22,5 +23,6 @@ export {
   TabBar,
   TabsHeader,
   // Newly added
-  CircularChart
+  CircularChart,
+  ProjectPreset
 }

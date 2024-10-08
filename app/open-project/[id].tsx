@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useLocalSearchParams } from 'expo-router'
-import { ScrollView, Dimensions } from 'react-native'
+import { ScrollView, Dimensions, View, ImageBackground } from 'react-native'
 import { Surface, ActivityIndicator, Text, Chip, Divider, Button, useTheme, Dialog, Portal, Avatar, TouchableRipple, Card, Banner, IconButton, Icon } from 'react-native-paper'
 import { Notifier, NotifierComponents } from 'react-native-notifier'
-import { Colors, styles, CircularChart } from '@/lib/ui'
+import { Colors, styles, CircularChart, ProjectPreset } from '@/lib/ui'
 import { rgb2hex } from '@/lib/utils'
 
 
@@ -209,14 +209,12 @@ const OpenProject = () => {
               title="Preset"
               titleVariant="titleLarge"
               left={(props) => <Avatar.Icon {...props} icon="cog" />}
-              right={(props) => <IconButton {...props} icon="dots-vertical" disabled={files.length > 0 ? false : true} onPress={() => setShowDialog(true)} />}
+              right={(props) => <IconButton {...props} icon="dots-vertical" onPress={() => console.log('clack')} />}
             />
             <Card.Content>
-              <Surface elevation={0} style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
-                <Chip icon="alpha-s-circle-outline" theme={{ colors: Colors[theme].olive }}>Standart</Chip>
-                <Chip icon="alpha-v-circle-outline" theme={{ colors: Colors[theme].orange }}>Vapor membrane</Chip>
-                <Chip icon="alpha-d-circle-outline" theme={{ colors: Colors[theme].blue }}>Double rafters</Chip>
-              </Surface>
+              <View style={{ height: 250 }}>
+                <ProjectPreset preset="Standart with facade insulation 50mm" />
+              </View>
             </Card.Content>
           </Card>
 

@@ -6,6 +6,7 @@ const English = {
   login: 'Log in',
   signup: 'Sign up',
   profile: 'Profile',
+  scanner: 'Scanner',
   options: 'Options',
   search: 'Search',
   stackNav: 'Stack Navigation',

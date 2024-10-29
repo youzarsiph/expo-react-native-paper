@@ -1,122 +1,55 @@
-import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { Tabs, router } from 'expo-router'
 import React from 'react'
-import { Appbar, Menu, Tooltip } from 'react-native-paper'
-
-import Locales from '@/lib/locales'
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons'
+import { Appbar, Tooltip } from 'react-native-paper'
+import { Tabs, router } from 'expo-router'
 import { TabBar, TabsHeader } from '@/lib/ui'
 
 const TabLayout = () => {
-  const [visible, setVisible] = React.useState(false)
 
   return (
     <Tabs
       tabBar={(props) => <TabBar {...props} />}
       screenOptions={{
         tabBarHideOnKeyboard: true,
-        header: (props) => <TabsHeader navProps={props} children={undefined} />,
+        header: (props) => <TabsHeader mode='center-aligned' navProps={props} children={undefined} />
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: Locales.t('titleHome'),
+          title: "Home",
           headerRight: () => (
-            <>
-              <Tooltip title={Locales.t('search')}>
-                <Appbar.Action
-                  icon="magnify"
-                  onPress={() => router.push('/search')}
-                />
-              </Tooltip>
-              <Menu
-                statusBarHeight={48}
-                visible={visible}
-                onDismiss={() => setVisible(false)}
-                anchor={
-                  <Tooltip title={Locales.t('options')}>
-                    <Appbar.Action
-                      icon="dots-vertical"
-                      onPress={() => setVisible(true)}
-                    />
-                  </Tooltip>
-                }
-              >
-                <Menu.Item
-                  title={Locales.t('titleSettings')}
-                  leadingIcon="cog"
-                  onPress={() => router.push('/(tabs)/settings')}
-                />
-                <Menu.Item
-                  title={Locales.t('stackNav')}
-                  leadingIcon="card-multiple-outline"
-                  onPress={() => router.push('/modal')}
-                />
-                <Menu.Item
-                  title={Locales.t('drawerNav')}
-                  leadingIcon="gesture-swipe"
-                  onPress={() => router.push('/drawer')}
-                />
-              </Menu>
-            </>
-          ),
-          tabBarIcon: (props) => (
-            <MaterialCommunityIcons
-              {...props}
-              size={24}
-              name={props.focused ? 'home' : 'home-outline'}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          title: Locales.t('profile'),
-          headerRight: () => (
-            <>
-              <Tooltip title={Locales.t('search')}>
-                <Appbar.Action
-                  icon="magnify"
-                  onPress={() => router.push('/search')}
-                />
-              </Tooltip>
-              <Tooltip title={Locales.t('titleSettings')}>
-                <Appbar.Action
-                  icon="cog"
-                  onPress={() => router.push('/(tabs)/settings')}
-                />
-              </Tooltip>
-            </>
-          ),
-          tabBarIcon: (props) => (
-            <MaterialCommunityIcons
-              {...props}
-              size={24}
-              name={props.focused ? 'account' : 'account-outline'}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="settings"
-        options={{
-          title: Locales.t('titleSettings'),
-          headerRight: () => (
-            <Tooltip title={Locales.t('drawerNav')}>
-              <Appbar.Action
-                icon="gesture-swipe"
-                onPress={() => router.push('/drawer')}
-              />
+            <Tooltip title="Log in">
+              <Appbar.Action icon="account" onPress={() => router.push('/login')} />
             </Tooltip>
           ),
           tabBarIcon: (props) => (
-            <MaterialCommunityIcons
-              {...props}
-              size={24}
-              name={props.focused ? 'cog' : 'cog-outline'}
-            />
+            <MaterialCommunityIcons {...props} size={24} name={props.focused ? 'home-variant' : 'home-variant-outline'} />
+          )
+        }}
+      />
+      <Tabs.Screen
+        name="scanner"
+        options={{
+          title: "Scanner",
+          headerRight: () => (
+            <Tooltip title="Scanner history">
+              <Appbar.Action icon="history" onPress={() => console.log('click')} />
+            </Tooltip>
           ),
+          tabBarIcon: (props) => (
+            <MaterialCommunityIcons {...props} size={24} name={props.focused ? 'qrcode-scan' : 'qrcode'} />
+          )
+        }}
+      />
+      <Tabs.Screen
+        name="projects"
+        options={{
+          title: "Workspace",
+          headerShown: false,
+          tabBarIcon: (props) => (
+            <MaterialCommunityIcons {...props} size={24} name={props.focused ? 'view-dashboard' : 'view-dashboard-outline'} />
+          )
         }}
       />
     </Tabs>

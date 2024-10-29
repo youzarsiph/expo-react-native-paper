@@ -8,7 +8,7 @@ interface DrawerHeaderProps extends AppbarProps {
 }
 
 const DrawerHeader = (props: DrawerHeaderProps) => (
-  <Appbar.Header {...props}>
+  <Appbar.Header {...props} mode='center-aligned'>
     <Appbar.Action
       icon="menu"
       onPress={() => props.navProps.navigation.openDrawer()}

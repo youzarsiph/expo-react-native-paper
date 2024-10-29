@@ -6,7 +6,7 @@ const LoadingIndicator = () => (
     elevation={0}
     style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
   >
-    <ActivityIndicator />
+    <ActivityIndicator size='large' />
   </Surface>
 )
 

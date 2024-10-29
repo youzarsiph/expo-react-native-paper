@@ -28,7 +28,7 @@
     "axios": "^1.7.7",
     "expo": "~51.0.31",
     "expo-camera": "~15.0.16",
-    "expo-dev-client": "~4.0.27",
+    "expo-dev-client": "~4.0.28",
     "expo-font": "~12.0.5",
     "expo-image": "~1.12.15",
     "expo-linking": "~6.3.1",

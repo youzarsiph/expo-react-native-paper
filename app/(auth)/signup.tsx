@@ -30,7 +30,7 @@ const SignUp = () => (
       />
 
       <Text variant="headlineLarge" style={{ textAlign: 'center' }}>
-        Join ERNP Today!
+        Join Us Today!
       </Text>
       <Text variant="bodyLarge" style={{ textAlign: 'center' }}>
         We're thrilled to have you on board. Let's get you set up.

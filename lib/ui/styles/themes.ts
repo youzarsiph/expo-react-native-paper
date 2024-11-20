@@ -2,47 +2,25 @@
  * Themes
  */
 
-import {
-  DarkTheme as NavigationDarkTheme,
-  DefaultTheme as NavigationDefaultTheme,
-} from '@react-navigation/native'
-import {
-  adaptNavigationTheme,
-  MD3LightTheme,
-  MD3DarkTheme,
-  configureFonts,
-} from 'react-native-paper'
+import { MD3LightTheme, MD3DarkTheme, configureFonts } from 'react-native-paper'
 
 import Colors from '@/lib/ui/styles/colors'
-
-const { LightTheme, DarkTheme } = adaptNavigationTheme({
-  reactNavigationLight: NavigationDefaultTheme,
-  reactNavigationDark: NavigationDarkTheme,
-})
 
 const fonts = configureFonts({ config: { fontFamily: 'NotoSans_400Regular' } })
 
 const BaseLightTheme = {
-  ...LightTheme,
   ...MD3LightTheme,
   fonts,
 }
 
 const BaseDarkTheme = {
-  ...DarkTheme,
   ...MD3DarkTheme,
   fonts,
 }
 
 const Themes = {
   light: {
-    default: {
-      ...BaseLightTheme,
-      colors: {
-        ...BaseLightTheme.colors,
-        ...Colors.light.default,
-      },
-    },
+    default: BaseLightTheme,
     orange: {
       ...BaseLightTheme,
       colors: {
@@ -122,13 +100,7 @@ const Themes = {
     },
   },
   dark: {
-    default: {
-      ...BaseDarkTheme,
-      colors: {
-        ...BaseDarkTheme.colors,
-        ...Colors.dark.default,
-      },
-    },
+    default: BaseDarkTheme,
     red: {
       ...BaseDarkTheme,
       colors: {

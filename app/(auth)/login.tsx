@@ -28,7 +28,7 @@ const Login = () => (
     />
 
     <Text variant="headlineLarge" style={{ textAlign: 'center' }}>
-      Welcome to ERNP
+      Welcome!
     </Text>
     <Text variant="bodyLarge" style={{ textAlign: 'center' }}>
       We're excited to have you back. Please log in to continue.

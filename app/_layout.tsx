@@ -1,29 +1,28 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import {
-  useFonts,
-  JetBrainsMono_400Regular,
-} from '@expo-google-fonts/jetbrains-mono'
+import { JetBrainsMono_400Regular } from '@expo-google-fonts/jetbrains-mono'
 import { NotoSans_400Regular } from '@expo-google-fonts/noto-sans'
+import {
+  DarkTheme as NavDarkTheme,
+  DefaultTheme as NavLightTheme,
+  ThemeProvider,
+} from '@react-navigation/native'
+import { useFonts } from 'expo-font'
 import * as Localization from 'expo-localization'
 import { SplashScreen, Stack } from 'expo-router'
 import * as SecureStore from 'expo-secure-store'
 import React from 'react'
 import { Platform, useColorScheme } from 'react-native'
-import { PaperProvider } from 'react-native-paper'
+import { adaptNavigationTheme, PaperProvider } from 'react-native-paper'
 
 import Locales from '@/lib/locales'
 import { Setting } from '@/lib/types'
 import { StackHeader, Themes } from '@/lib/ui'
 
-export {
-  // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
-} from 'expo-router'
+// Catch any errors thrown by the Layout component.
+export { ErrorBoundary } from 'expo-router'
 
-export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: '(tabs)',
-}
+// Ensure that reloading on `/modal` keeps a back button present.
+export const unstable_settings = { initialRouteName: '(tabs)' }
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync()
@@ -90,32 +89,49 @@ const RootLayoutNav = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  const theme =
+    Themes[
+      settings.theme === 'auto' ? (colorScheme ?? 'dark') : settings.theme
+    ][settings.color]
+
+  const { DarkTheme, LightTheme } = adaptNavigationTheme({
+    reactNavigationDark: NavDarkTheme,
+    reactNavigationLight: NavLightTheme,
+    materialDark: Themes.dark[settings.color],
+    materialLight: Themes.light[settings.color],
+  })
+
   return (
-    <PaperProvider
-      theme={
-        Themes[
-          settings.theme === 'auto' ? (colorScheme ?? 'dark') : settings.theme
-        ][settings.color]
+    <ThemeProvider
+      value={
+        colorScheme === 'light'
+          ? { ...LightTheme, fonts: NavLightTheme.fonts }
+          : { ...DarkTheme, fonts: NavDarkTheme.fonts }
       }
     >
-      <Stack
-        screenOptions={{
-          animation: 'slide_from_bottom',
-          header: (props) => (
-            <StackHeader navProps={props} children={undefined} />
-          ),
-        }}
-      >
-        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="drawer" options={{ headerShown: false }} />
-        <Stack.Screen name="search" options={{ title: Locales.t('search') }} />
-        <Stack.Screen
-          name="modal"
-          options={{ title: Locales.t('titleModal'), presentation: 'modal' }}
-        />
-      </Stack>
-    </PaperProvider>
+      <PaperProvider theme={theme}>
+        <Stack
+          screenOptions={{
+            animation: 'slide_from_bottom',
+            header: (props) => (
+              <StackHeader navProps={props} children={undefined} />
+            ),
+          }}
+        >
+          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="drawer" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="search"
+            options={{ title: Locales.t('search') }}
+          />
+          <Stack.Screen
+            name="modal"
+            options={{ title: Locales.t('titleModal'), presentation: 'modal' }}
+          />
+        </Stack>
+      </PaperProvider>
+    </ThemeProvider>
   )
 }
 

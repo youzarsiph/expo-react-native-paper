@@ -18,7 +18,9 @@ const TabsHeader = (props: TabsHeaderProps) => (
     />
 
     {props.navProps.options.headerRight
-      ? props.navProps.options.headerRight({})
+      ? props.navProps.options.headerRight({
+          canGoBack: props.navProps.navigation.canGoBack(),
+        })
       : undefined}
   </Appbar.Header>
 )

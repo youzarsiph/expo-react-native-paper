@@ -1,4 +1,4 @@
-# expo-react-native-paper
+# Expo React Native Paper
 
 [![EAS Build](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/eas-build.yml/badge.svg)](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/eas-build.yml)
 [![EAS Review](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/eas-reviews.yml/badge.svg)](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/eas-reviews.yml)
@@ -7,99 +7,176 @@
 [![ESLint](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/eslint.yml/badge.svg)](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/eslint.yml)
 [![Prettier](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/prettier.yml/badge.svg)](https://github.com/youzarsiph/expo-react-native-paper/actions/workflows/prettier.yml)
 
-This repository is a template for React Native Expo applications. It integrates Expo Router and React Native Paper. It also demonstrates how to use Github Actions for linting and formatting.
+## Overview
 
-## Features
+The `expo-react-native-paper` repository provides a robust boilerplate for developing React Native applications using Expo. It seamlessly integrates core components such as Expo Router for navigation, React Native Paper for UI design, and GitHub Actions for continuous integration and deployment, ensuring high standards of code quality and maintainability.
 
-- Expo
-- Expo Router
-- Material Design V3
-- Light & Dark modes with custom themes
-- Cross Platform
-- LTR and RTL support
-- Multi lingual (`ar`, `en` and `tr`)
-- CI/CD. For more info checkout this [page](https://github.com/expo/expo-github-action/tree/main)
+### Key Features
 
-## Platforms
+- **Expo Framework**: Streamlines the development process with its managed workflow.
+- **Expo Router**: Simplifies routing and navigation with minimal configuration.
+- **Material Design V3**: Adapts the latest Material Design principles for a modern user experience.
+- **Themable UI**: Offers customizable light and dark themes.
+- **Cross-Platform Compatibility**: Operates seamlessly on Web, iOS, and Android.
+- **Bi-directional Layout Support**: Supports Left-to-Right (LTR) and Right-to-Left (RTL) layouts.
+- **Internationalization (i18n)**: Supports multiple languages, including Arabic, English, and Turkish.
+- **CI/CD Integration**: Employs GitHub Actions for automated builds, code reviews, and deployments.
+
+### Supported Platforms
 
 - Web
-- IOS
+- iOS
 - Android
 
-## Screenshots
+### Screenshots
 
-![Home Screen (Tabs)](./screenshots/home-default-light.png)
-![Profile Screen (Tabs)](./screenshots/profile-teal-dark.png)
-![Settings Screen (Tabs)](./screenshots/settings-lime-light.png)
-![Modal Screen (Stack)](./screenshots/modal-light-red.png)
-![Search Screen (Stack)](./screenshots/search-orange-dark.png)
-![Login Screen (Stack)](./screenshots/login-violet-light.png)
-![Signup Screen (Stack)](./screenshots/signup-green-dark.png)
-![Home Screen (Drawer)](./screenshots/home-blue-dark.png)
-![Profile Screen (Drawer)](./screenshots/profile-olive-light.png)
-![Settings Screen (Drawer)](./screenshots/settings-violet-light.png)
+Below are screenshots showcasing various screens of the application:
+
+- **Home Screen (Tabs)**
+
+  ![Home Screen (Tabs)](./screenshots/home-default-light.png)
+
+- **Profile Screen (Tabs)**
+
+  ![Profile Screen (Tabs)](./screenshots/profile-teal-dark.png)
+
+- **Settings Screen (Tabs)**
+
+  ![Settings Screen (Tabs)](./screenshots/settings-lime-light.png)
+
+- **Modal Screen (Stack)**
+
+  ![Modal Screen (Stack)](./screenshots/modal-light-red.png)
+
+- **Search Screen (Stack)**
+
+  ![Search Screen (Stack)](./screenshots/search-orange-dark.png)
+
+- **Login Screen (Stack)**
+
+  ![Login Screen (Stack)](./screenshots/login-violet-light.png)
+
+- **Signup Screen (Stack)**
+
+  ![Signup Screen (Stack)](./screenshots/signup-green-dark.png)
+
+- **Home Screen (Drawer)**
+
+  ![Home Screen (Drawer)](./screenshots/home-blue-dark.png)
+
+- **Profile Screen (Drawer)**
+
+  ![Profile Screen (Drawer)](./screenshots/profile-olive-light.png)
+
+- **Settings Screen (Drawer)**
+
+  ![Settings Screen (Drawer)](./screenshots/settings-violet-light.png)
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
 ### Prerequisites
 
-- Node.js
-- npm
+Ensure the following are installed on your system:
+
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
 
 ### Installation
 
-Clone the repo:
+1. **Clone the Repository**
 
-```bash
-git clone https://github.com/youzarsiph/expo-react-native-paper.git
-```
+   ```bash
+   git clone https://github.com/youzarsiph/expo-react-native-paper.git
+   cd expo-react-native-paper
+   ```
 
-Open `package.json` and update the `name` field to match your app's name:
+2. **Customize the Project**
 
-```jsonc
-{
-  // Change the following line
-  "name": "expo-react-native-paper",
-  "main": "expo-router/entry",
-  "version": "1.0.0",
-  ...
-}
+   Open the `package.json` file to update the application name:
 
-```
+   ```jsonc
+   {
+     "name": "your-app-name",
+     ...
+   }
+   ```
 
-Install dependencies:
+3. **Install Dependencies**
 
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
-Run the app:
+4. **Run the Application**
 
-```bash
-npm start
-```
+   ```bash
+   npm start
+   ```
 
 ## Built With
 
-- TypeScript
-- React
-- React Native
-- Expo
-- Expo Router
-- React Native Paper
+- **TypeScript** - For type-safe JavaScript development.
+- **React** - A JavaScript library for building user interfaces.
+- **React Native** - A framework for creating native applications.
+- **Expo** - A platform for universal React applications.
+- **Expo Router** - A flexible and efficient routing solution for React Native.
+- **React Native Paper** - A component library implementing Material Design.
 
 ## Contributing
 
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+We welcome contributions that enhance the quality and functionality of this project. To contribute, follow these steps:
 
-1. Fork the Project
-2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
-3. Commit your Changes (git commit -m 'Add some AmazingFeature')
-4. Push to the Branch (git push origin feature/AmazingFeature)
-5. Open a Pull Request
+1. **Fork the Repository**
+
+   Fork the `expo-react-native-paper` repository on GitHub and clone your fork to your local machine.
+
+2. **Create a New Branch**
+
+   Create a new branch for your feature or fix:
+
+   ```bash
+   git checkout -b feature/AmazingFeature
+   ```
+
+3. **Commit Your Changes**
+
+   Make your changes and commit them with a descriptive message:
+
+   ```bash
+   git commit -m 'Add some AmazingFeature'
+   ```
+
+4. **Push to the Branch**
+
+   Push your changes to your fork on GitHub:
+
+   ```bash
+   git push origin feature/AmazingFeature
+   ```
+
+5. **Open a Pull Request**
+
+   Open a pull request in the original repository with a description of your changes.
+
+Your contributions are integral to the ongoing evolution of this project.
+
+## Code Quality
+
+We enforce high code quality through automated checks:
+
+- **CodeQL**: Security scans for identifying vulnerabilities.
+- **ESLint**: JavaScript linting to maintain code consistency.
+- **Prettier**: Code formatting to ensure uniformity.
 
 ## License
 
-Distributed under the MIT License. See LICENSE for more information.
+This project is licensed under the MIT License. For more information, see the [LICENSE](LICENSE) file.
+
+## Acknowledgments
+
+We extend our gratitude to the developers and maintainers of the following open-source libraries and tools:
+
+- [Expo](https://expo.dev/)
+- [React Native](https://reactnative.dev/)
+- [React Native Paper](https://callstack.github.io/react-native-paper/)
+- [Expo Router](https://docs.expo.dev/build-reference/variables/)

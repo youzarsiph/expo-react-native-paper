@@ -34,43 +34,43 @@ Below are screenshots showcasing various screens of the application:
 
 - **Home Screen (Tabs)**
 
-  ![Home Screen (Tabs)](./screenshots/home-default-light.png)
+  ![Home Screen (Tabs)](assets/screenshots/home-default-light.png)
 
 - **Profile Screen (Tabs)**
 
-  ![Profile Screen (Tabs)](./screenshots/profile-teal-dark.png)
+  ![Profile Screen (Tabs)](assets/screenshots/profile-teal-dark.png)
 
 - **Settings Screen (Tabs)**
 
-  ![Settings Screen (Tabs)](./screenshots/settings-lime-light.png)
+  ![Settings Screen (Tabs)](assets/screenshots/settings-lime-light.png)
 
 - **Modal Screen (Stack)**
 
-  ![Modal Screen (Stack)](./screenshots/modal-light-red.png)
+  ![Modal Screen (Stack)](assets/screenshots/modal-light-red.png)
 
 - **Search Screen (Stack)**
 
-  ![Search Screen (Stack)](./screenshots/search-orange-dark.png)
+  ![Search Screen (Stack)](assets/screenshots/search-orange-dark.png)
 
 - **Login Screen (Stack)**
 
-  ![Login Screen (Stack)](./screenshots/login-violet-light.png)
+  ![Login Screen (Stack)](assets/screenshots/login-violet-light.png)
 
 - **Signup Screen (Stack)**
 
-  ![Signup Screen (Stack)](./screenshots/signup-green-dark.png)
+  ![Signup Screen (Stack)](assets/screenshots/signup-green-dark.png)
 
 - **Home Screen (Drawer)**
 
-  ![Home Screen (Drawer)](./screenshots/home-blue-dark.png)
+  ![Home Screen (Drawer)](assets/screenshots/home-blue-dark.png)
 
 - **Profile Screen (Drawer)**
 
-  ![Profile Screen (Drawer)](./screenshots/profile-olive-light.png)
+  ![Profile Screen (Drawer)](assets/screenshots/profile-olive-light.png)
 
 - **Settings Screen (Drawer)**
 
-  ![Settings Screen (Drawer)](./screenshots/settings-violet-light.png)
+  ![Settings Screen (Drawer)](assets/screenshots/settings-violet-light.png)
 
 ## Getting Started
 

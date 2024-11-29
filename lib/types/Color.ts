@@ -1,4 +1,4 @@
-import { Colors } from '@/lib/ui'
+import { Colors } from '@/lib'
 
 type Color = keyof typeof Colors.light
 

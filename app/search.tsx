@@ -1,8 +1,7 @@
 import React from 'react'
 import { Searchbar, Surface } from 'react-native-paper'
 
-import Locales from '@/lib/locales'
-import { ScreenInfo, styles } from '@/lib/ui'
+import { Locales, ScreenInfo, styles } from '@/lib'
 
 const Search = () => {
   const [query, setQuery] = React.useState('')

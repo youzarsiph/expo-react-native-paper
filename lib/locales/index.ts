@@ -16,4 +16,4 @@ const Locales = new I18n({
 
 Locales.enableFallback = true
 
-export default Locales
+export { Locales }

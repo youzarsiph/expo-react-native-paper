@@ -10,13 +10,12 @@ import { useFonts } from 'expo-font'
 import * as Localization from 'expo-localization'
 import { SplashScreen, Stack } from 'expo-router'
 import * as SecureStore from 'expo-secure-store'
+import { StatusBar } from 'expo-status-bar'
 import React from 'react'
 import { Platform, useColorScheme } from 'react-native'
 import { adaptNavigationTheme, PaperProvider } from 'react-native-paper'
 
-import Locales from '@/lib/locales'
-import { Setting } from '@/lib/types'
-import { StackHeader, Themes } from '@/lib/ui'
+import { Locales, Setting, StackHeader, Themes } from '@/lib'
 
 // Catch any errors thrown by the Layout component.
 export { ErrorBoundary } from 'expo-router'
@@ -131,6 +130,8 @@ const RootLayoutNav = () => {
           />
         </Stack>
       </PaperProvider>
+
+      <StatusBar style="auto" />
     </ThemeProvider>
   )
 }

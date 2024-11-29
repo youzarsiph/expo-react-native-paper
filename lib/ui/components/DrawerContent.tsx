@@ -3,7 +3,7 @@ import { router } from 'expo-router'
 import React from 'react'
 import { Drawer, DrawerSectionProps } from 'react-native-paper'
 
-import Locales from '@/lib/locales'
+import { Locales } from '@/lib/locales'
 
 interface DrawerContentProps extends DrawerSectionProps {
   navProps: DrawerContentComponentProps

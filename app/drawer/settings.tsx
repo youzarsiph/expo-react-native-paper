@@ -11,10 +11,17 @@ import {
   Icon,
 } from 'react-native-paper'
 
-import Locales from '@/lib/locales'
-import { Color, Language, Setting } from '@/lib/types'
-import { Colors, LoadingIndicator, ScreenInfo, styles } from '@/lib/ui'
-import { Languages } from '@/lib/utils'
+import {
+  Color,
+  Colors,
+  Language,
+  Languages,
+  LoadingIndicator,
+  Locales,
+  ScreenInfo,
+  Setting,
+  styles,
+} from '@/lib'
 
 const Settings = () => {
   const colorScheme = useColorScheme()

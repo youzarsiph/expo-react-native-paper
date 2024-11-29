@@ -12,7 +12,7 @@ import {
 } from 'react-native-paper'
 import * as Yup from 'yup'
 
-import { styles } from '@/lib/ui'
+import { styles } from '@/lib'
 
 const SignUp = () => (
   <ScrollView style={{ flex: 1 }}>

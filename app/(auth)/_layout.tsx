@@ -1,7 +1,6 @@
 import { Stack } from 'expo-router'
 
-import Locales from '@/lib/locales'
-import { StackHeader } from '@/lib/ui'
+import { Locales, StackHeader } from '@/lib'
 
 const Layout = () => (
   <Stack

@@ -3,8 +3,7 @@ import React from 'react'
 import { Platform } from 'react-native'
 import { Surface } from 'react-native-paper'
 
-import Locales from '@/lib/locales'
-import { ScreenInfo, styles } from '@/lib/ui'
+import { Locales, ScreenInfo, styles } from '@/lib'
 
 const Modal = () => (
   <Surface style={styles.screen}>

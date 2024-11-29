@@ -2,8 +2,7 @@ import { Link, Stack } from 'expo-router'
 import React from 'react'
 import { Surface, Text } from 'react-native-paper'
 
-import Locales from '@/lib/locales'
-import { styles } from '@/lib/ui'
+import { Locales, styles } from '@/lib'
 
 const NotFound = () => (
   <Surface style={styles.screen}>

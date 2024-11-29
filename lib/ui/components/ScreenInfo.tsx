@@ -1,7 +1,8 @@
 import { Chip, Text } from 'react-native-paper'
 
-import Locales from '@/lib/locales'
-import GradientBackground from '@/lib/ui/components/GradientBackground'
+import { Locales } from '@/lib/locales'
+
+import GradientBackground from './GradientBackground'
 
 const ScreenInfo = (props: { title: string; path: string }) => (
   <>

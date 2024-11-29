@@ -11,7 +11,7 @@ import {
 } from 'react-native-paper'
 import * as Yup from 'yup'
 
-import { styles } from '@/lib/ui'
+import { styles } from '@/lib'
 
 const Login = () => (
   <Surface style={{ ...styles.screen, alignItems: undefined }}>

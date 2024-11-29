@@ -3,8 +3,7 @@ import { Tabs, router } from 'expo-router'
 import React from 'react'
 import { Appbar, Menu, Tooltip } from 'react-native-paper'
 
-import Locales from '@/lib/locales'
-import { TabBar, TabsHeader } from '@/lib/ui'
+import { Locales, TabBar, TabsHeader } from '@/lib'
 
 const TabLayout = () => {
   const [visible, setVisible] = React.useState(false)

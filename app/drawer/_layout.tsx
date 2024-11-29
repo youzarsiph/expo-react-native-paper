@@ -4,8 +4,7 @@ import React from 'react'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { Appbar, Menu, Tooltip, useTheme } from 'react-native-paper'
 
-import Locales from '@/lib/locales'
-import { DrawerContent, DrawerHeader } from '@/lib/ui'
+import { DrawerContent, DrawerHeader, Locales } from '@/lib'
 
 const DrawerLayout = () => {
   const theme = useTheme()

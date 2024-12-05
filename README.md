@@ -172,6 +172,13 @@ We enforce high code quality through automated checks:
 
 This project is licensed under the MIT License. For more information, see the [LICENSE](LICENSE) file.
 
+## Related Projects
+
+- [**expo-material**](https://github.com/youzarsiph/expo-material): Enhances Expo's default setup with Material Design elements.
+- [**expo-material-tabs**](https://github.com/youzarsiph/expo-material-tabs): Expands the `expo-material` template with tab navigation.
+- [**expo-material-drawer**](https://github.com/youzarsiph/expo-material-drawer): Integrates a side drawer navigation system into the `expo-material` template.
+- [**expo-drive**](https://github.com/youzarsiph/expo-drive): A template replicating the Google Drive user interface, providing a familiar and intuitive design.
+
 ## Acknowledgments
 
 We extend our gratitude to the developers and maintainers of the following open-source libraries and tools:

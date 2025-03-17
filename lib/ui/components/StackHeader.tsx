@@ -4,7 +4,6 @@ import React from 'react'
 import {
   Appbar,
   AppbarProps,
-  IconButton,
   Searchbar,
   SearchbarProps,
 } from 'react-native-paper'
@@ -18,6 +17,14 @@ interface StackHeaderProps extends AppbarProps {
 const StackHeader = (props: StackHeaderProps) => {
   const [query, setQuery] = React.useState('')
 
+  React.useEffect(() => {
+    if (props.searchBarProps?.onChangeText) {
+      props.searchBarProps.onChangeText(query)
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query])
+
   return props.withSearchbar ? (
     <Appbar.Header {...props}>
       <Searchbar
@@ -27,17 +34,6 @@ const StackHeader = (props: StackHeaderProps) => {
         onChangeText={setQuery}
         style={{ margin: 8, marginBottom: 16 }}
         onIconPress={() => props.navProps.navigation.goBack()}
-        right={(p) => (
-          <IconButton
-            {...p}
-            icon="magnify"
-            onPress={() =>
-              props.searchBarProps?.onChangeText
-                ? props.searchBarProps.onChangeText(query)
-                : undefined
-            }
-          />
-        )}
       />
     </Appbar.Header>
   ) : (
